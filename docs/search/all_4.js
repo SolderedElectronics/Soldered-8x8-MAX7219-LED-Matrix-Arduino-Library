@@ -1,5 +1,25 @@
 var searchData=
 [
-  ['generic_2deasyc_2dsoldered_2ecpp_8',['Generic-easyC-SOLDERED.cpp',['../_generic-easy_c-_s_o_l_d_e_r_e_d_8cpp.html',1,'']]],
-  ['generic_2deasyc_2dsoldered_2eh_9',['Generic-easyC-SOLDERED.h',['../_generic-easy_c-_s_o_l_d_e_r_e_d_8h.html',1,'']]]
+  ['catalan_68',['Catalan',['../_doxyfile_8dox.html#a4e4f3639fdf431109cbbb46acdb66ecc',1,'Doxyfile.dox']]],
+  ['changed_69',['changed',['../struct_m_d___m_a_x72_x_x_1_1device_info__t.html#a629ae0e915e25dec0d9903fd860dcb3c',1,'MD_MAX72XX::deviceInfo_t']]],
+  ['chinese_70',['Chinese',['../_doxyfile_8dox.html#a5d78fb4a60c7a227c3253ac162aeaffe',1,'Doxyfile.dox']]],
+  ['clear_71',['clear',['../class_m_d___m_a_x72_x_x.html#a5ce5b733333d776ef94e0cc36e1043cf',1,'MD_MAX72XX::clear(void)'],['../class_m_d___m_a_x72_x_x.html#acff691690cb5848980f10be9facbe086',1,'MD_MAX72XX::clear(uint8_t buf)'],['../class_m_d___m_a_x72_x_x.html#ac57b7cd49a465e7f5f3027a1eac46242',1,'MD_MAX72XX::clear(uint8_t startDev, uint8_t endDev)']]],
+  ['cmdline_72',['cmdLine',['../txt2font_8c.html#a7ffead93fe1f6dd75d9524e1f0783f4e',1,'cmdLine(int argc, char *argv[]):&#160;txt2font.c'],['../font2txt_8c.html#a7ffead93fe1f6dd75d9524e1f0783f4e',1,'cmdLine(int argc, char *argv[]):&#160;font2txt.c']]],
+  ['comment_73',['comment',['../struct_a_s_c_i_i_def__t.html#a86e64718db7d436cd2f64157514e7178',1,'ASCIIDef_t']]],
+  ['control_74',['control',['../class_m_d___m_a_x72_x_x.html#aa54ba8b079710f6b4e9f9721e2e09c68',1,'MD_MAX72XX::control(uint8_t dev, controlRequest_t mode, int value)'],['../class_m_d___m_a_x72_x_x.html#aeb43fa0c917e716b9d35eac72fb1dd45',1,'MD_MAX72XX::control(controlRequest_t mode, int value)'],['../class_m_d___m_a_x72_x_x.html#aa724a797235e28a43b8d127e4999537e',1,'MD_MAX72XX::control(uint8_t startDev, uint8_t endDev, controlRequest_t mode, int value)']]],
+  ['controlhardware_75',['controlHardware',['../class_m_d___m_a_x72_x_x.html#a17c4b7d194ca2b44acbcecc3d5895c37',1,'MD_MAX72XX']]],
+  ['controllibrary_76',['controlLibrary',['../class_m_d___m_a_x72_x_x.html#acc36072329a7826e8cccf8cf61e4d61a',1,'MD_MAX72XX']]],
+  ['controlrequest_5ft_77',['controlRequest_t',['../class_m_d___m_a_x72_x_x.html#a7c6d702fe0161b19448f35049e00bf4f',1,'MD_MAX72XX']]],
+  ['controlvalue_5ft_78',['controlValue_t',['../class_m_d___m_a_x72_x_x.html#aadaf745b81100652dafeff2eb212f457',1,'MD_MAX72XX']]],
+  ['copyc_79',['copyC',['../class_m_d___m_a_x72_x_x.html#ae8952a325a1e7050480c8cb17d351912',1,'MD_MAX72XX']]],
+  ['copycolumn_80',['copyColumn',['../class_m_d___m_a_x72_x_x.html#a70eba4b04392bfa2abdf1ed56abec004',1,'MD_MAX72XX']]],
+  ['copyr_81',['copyR',['../class_m_d___m_a_x72_x_x.html#a8902f555b3815fd85ec239d1f917e05e',1,'MD_MAX72XX']]],
+  ['copyright_82',['Copyright',['../page_copyright.html',1,'index']]],
+  ['copyrow_83',['copyRow',['../class_m_d___m_a_x72_x_x.html#ab874c96a2a6c201f86af04546d3ae72d',1,'MD_MAX72XX']]],
+  ['create_20and_20modify_20fonts_84',['Create and Modify Fonts',['../page_font_utility.html',1,'index']]],
+  ['create_5fsubdirs_85',['CREATE_SUBDIRS',['../_doxyfile_8dox.html#a45ac31295d5b8d57f12ea6a27cdc6ab8',1,'Doxyfile.dox']]],
+  ['createfontchar_86',['createFontChar',['../txt2font_8c.html#afcdba147b49af98f36022af3f9c9441f',1,'txt2font.c']]],
+  ['createfontdata_87',['createFontData',['../font2txt_8c.html#a535620421960be84b1891ab7f77296f5',1,'font2txt.c']]],
+  ['curbuf_88',['curBuf',['../struct_global__t.html#a6f26ce33c484b1302a2fd6e4c2242bb1',1,'Global_t']]],
+  ['curcode_89',['curCode',['../struct_global__t.html#a069dc80fe40abddcc65afc7fc8b2002d',1,'Global_t']]]
 ];
