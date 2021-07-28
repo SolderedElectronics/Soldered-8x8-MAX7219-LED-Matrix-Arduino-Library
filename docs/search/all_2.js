@@ -8,6 +8,5 @@ var searchData=
   ['animstate_5ft_54',['animState_t',['../class_m_d___robot_eyes.html#a23777d50d1567ef8a470bdb639eaae6a',1,'MD_RobotEyes']]],
   ['animtable_5ft_55',['animTable_t',['../struct_m_d___robot_eyes_1_1anim_table__t.html',1,'MD_RobotEyes']]],
   ['arabic_56',['Arabic',['../_doxyfile_8dox.html#ae359b0c516c69bb35e6d504373855726',1,'Doxyfile.dox']]],
-  ['armenian_57',['Armenian',['../_doxyfile_8dox.html#a62e12b36d8680632de18ae4e2310c6a9',1,'Doxyfile.dox']]],
-  ['asciidef_5ft_58',['ASCIIDef_t',['../struct_a_s_c_i_i_def__t.html',1,'']]]
+  ['armenian_57',['Armenian',['../_doxyfile_8dox.html#a62e12b36d8680632de18ae4e2310c6a9',1,'Doxyfile.dox']]]
 ];

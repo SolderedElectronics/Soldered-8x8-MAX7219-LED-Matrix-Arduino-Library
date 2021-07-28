@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['name_542',['name',['../struct_global__t.html#a873fb6451f8261ef3c2dfccf13e3ff07',1,'Global_t']]],
-  ['native_543',['native',['../class_easy_c.html#abb766b60f26778dbc64e8792fd754729',1,'EasyC']]]
+  ['output_5fdirectory_470',['OUTPUT_DIRECTORY',['../_doxyfile_8dox.html#ac8d372b6b1ede7ebc77c7bad3735fe71',1,'Doxyfile.dox']]],
+  ['output_5flanguage_471',['OUTPUT_LANGUAGE',['../_doxyfile_8dox.html#aa686af1c2590c81f9c36659adf520b1b',1,'Doxyfile.dox']]],
+  ['output_5ftext_5fdirection_472',['OUTPUT_TEXT_DIRECTION',['../_doxyfile_8dox.html#a2d09c1ab7eb380ec7ea01479b3c372d5',1,'Doxyfile.dox']]]
 ];

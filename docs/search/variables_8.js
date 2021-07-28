@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['height_537',['height',['../struct_m_d___m_a_x72_x_x_1_1font_info__t.html#abcebf53a98f88c26b3c352d5afd4b5b4',1,'MD_MAX72XX::fontInfo_t']]]
+  ['inline_5finherited_5fmemb_465',['INLINE_INHERITED_MEMB',['../_doxyfile_8dox.html#a0268af86d8990417dc36184ffce820ca',1,'Doxyfile.dox']]]
 ];

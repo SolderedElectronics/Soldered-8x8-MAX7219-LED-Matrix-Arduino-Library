@@ -1,7 +1,27 @@
 var searchData=
 [
-  ['readdata_414',['readData',['../class_easy_c.html#a9a3d39be50b348768bc4b5dea3dae01a',1,'EasyC']]],
-  ['readinput_415',['readInput',['../txt2font_8c.html#aff31f4f43b59ebd12f9caf19fc08260c',1,'txt2font.c']]],
-  ['readregister_416',['readRegister',['../class_easy_c.html#a45bd6c915c1fa0998e273f69ee2d2376',1,'EasyC']]],
-  ['runanimation_417',['runAnimation',['../class_m_d___robot_eyes.html#ab30a9d167b84ce2c86f7843076fa2248',1,'MD_RobotEyes']]]
+  ['seedout_364',['seedOut',['../class_m_d___eye_pair.html#a0b3cbd4a6fd2112bfeab8381552b6388',1,'MD_EyePair']]],
+  ['sendaddress_365',['sendAddress',['../class_easy_c.html#a10aa7df19e8c7bf12cd720b662f317a3',1,'EasyC']]],
+  ['senddata_366',['sendData',['../class_easy_c.html#afe8aa014ae53cad3b0f3c42f59277195',1,'EasyC']]],
+  ['setanimation_367',['setAnimation',['../class_m_d___robot_eyes.html#ad53a99adef65240fbee524de7ad45df2',1,'MD_RobotEyes']]],
+  ['setautoblink_368',['setAutoBlink',['../class_m_d___robot_eyes.html#ab074bd4eced03712f8e48b5e06fe18d5',1,'MD_RobotEyes']]],
+  ['setblinktime_369',['setBlinkTime',['../class_m_d___robot_eyes.html#a7b10f9b4722e0ee4dc626ebfc28eebcb',1,'MD_RobotEyes']]],
+  ['setbuffer_370',['setBuffer',['../class_m_d___m_a_x72_x_x.html#a1aaabf8c4df556c3e9a04a1319234261',1,'MD_MAX72XX']]],
+  ['setc_371',['setC',['../class_m_d___m_a_x72_x_x.html#a6228de3ae3da148caa7af7612c803735',1,'MD_MAX72XX']]],
+  ['setchar_372',['setChar',['../class_m_d___m_a_x72_x_x.html#ae0bb8f197ef89389374f83717f0a1c3d',1,'MD_MAX72XX']]],
+  ['setcolumn_373',['setColumn',['../class_m_d___m_a_x72_x_x.html#ab3f2885a67e435198b5b01505030165d',1,'MD_MAX72XX::setColumn(uint16_t c, uint8_t value)'],['../class_m_d___m_a_x72_x_x.html#a7788a0bdbef1a302a7652998b21703bd',1,'MD_MAX72XX::setColumn(uint8_t buf, uint8_t c, uint8_t value)']]],
+  ['setfont_374',['setFont',['../class_m_d___m_a_x72_x_x.html#a16655f29d088d8ce1d557abcb703513d',1,'MD_MAX72XX']]],
+  ['setfontinfodefault_375',['setFontInfoDefault',['../class_m_d___m_a_x72_x_x.html#a0fb110ae8303ad632be8423f72b1ec2c',1,'MD_MAX72XX']]],
+  ['setmoduleparameters_376',['setModuleParameters',['../class_m_d___m_a_x72_x_x.html#a2cf746bcce5eb802b5732ea92bf2c7aa',1,'MD_MAX72XX']]],
+  ['setmoduletype_377',['setModuleType',['../class_m_d___m_a_x72_x_x.html#ab68333e23c99212d9574b39ed7e67a96',1,'MD_MAX72XX']]],
+  ['setpoint_378',['setPoint',['../class_m_d___m_a_x72_x_x.html#a1078a6ad9ae77ff7ef75f78d86f04da7',1,'MD_MAX72XX']]],
+  ['setr_379',['setR',['../class_m_d___m_a_x72_x_x.html#a68dfc097e976ebf94d2edd173e6a3361',1,'MD_MAX72XX']]],
+  ['setrow_380',['setRow',['../class_m_d___m_a_x72_x_x.html#a9c3c6ea52bfe61fc0279d9deb98a9e6e',1,'MD_MAX72XX::setRow(uint8_t r, uint8_t value)'],['../class_m_d___m_a_x72_x_x.html#a238cb42149b473027fd203406828dc35',1,'MD_MAX72XX::setRow(uint8_t startDev, uint8_t endDev, uint8_t r, uint8_t value)'],['../class_m_d___m_a_x72_x_x.html#afff77a9eb68408447a15172d7555d794',1,'MD_MAX72XX::setRow(uint8_t buf, uint8_t r, uint8_t value)']]],
+  ['setshiftdataincallback_381',['setShiftDataInCallback',['../class_m_d___m_a_x72_x_x.html#a8e126c7e12fbca524ef93befad3db825',1,'MD_MAX72XX']]],
+  ['setshiftdataoutcallback_382',['setShiftDataOutCallback',['../class_m_d___m_a_x72_x_x.html#af4672c2b149198fb682d9aa2518f3505',1,'MD_MAX72XX']]],
+  ['settext_383',['setText',['../class_m_d___robot_eyes.html#a94a458947d9fc573bcf88df0e01dbff3',1,'MD_RobotEyes']]],
+  ['shorter_384',['shorter',['../_doxyfile_8dox.html#add553ff57c15663895c903251c0ea5c7',1,'Doxyfile.dox']]],
+  ['showtext_385',['showText',['../class_m_d___robot_eyes.html#a201d2502fc74f6c127339ab3efe58e3a',1,'MD_RobotEyes']]],
+  ['spiclearbuffer_386',['spiClearBuffer',['../class_m_d___m_a_x72_x_x.html#a870ae1600e241ffa4b9c9910bf5bef22',1,'MD_MAX72XX']]],
+  ['spisend_387',['spiSend',['../class_m_d___m_a_x72_x_x.html#a4690478c16105ba9ab7774db620fa69d',1,'MD_MAX72XX']]]
 ];

@@ -4,7 +4,6 @@ var files_dup =
     [ "easyC.h", "easy_c_8h.html", [
       [ "EasyC", "class_easy_c.html", "class_easy_c" ]
     ] ],
-    [ "font2txt.c", "font2txt_8c.html", "font2txt_8c" ],
     [ "Font_Data.h", "_font___data_8h.html", "_font___data_8h" ],
     [ "Led-Matrix-SOLDERED.cpp", "_led-_matrix-_s_o_l_d_e_r_e_d_8cpp.html", null ],
     [ "Led-Matrix-SOLDERED.h", "_led-_matrix-_s_o_l_d_e_r_e_d_8h.html", [
@@ -30,8 +29,5 @@ var files_dup =
       [ "animFrame_t", "struct_m_d___robot_eyes_1_1anim_frame__t.html", "struct_m_d___robot_eyes_1_1anim_frame__t" ],
       [ "animTable_t", "struct_m_d___robot_eyes_1_1anim_table__t.html", "struct_m_d___robot_eyes_1_1anim_table__t" ]
     ] ],
-    [ "MD_RobotEyes_Data.h", "_m_d___robot_eyes___data_8h.html", "_m_d___robot_eyes___data_8h" ],
-    [ "txt2font.c", "txt2font_8c.html", "txt2font_8c" ],
-    [ "font2txt/txt2font.h", "font2txt_2txt2font_8h.html", "font2txt_2txt2font_8h" ],
-    [ "txt2font/txt2font.h", "txt2font_2txt2font_8h.html", "txt2font_2txt2font_8h" ]
+    [ "MD_RobotEyes_Data.h", "_m_d___robot_eyes___data_8h.html", "_m_d___robot_eyes___data_8h" ]
 ];
