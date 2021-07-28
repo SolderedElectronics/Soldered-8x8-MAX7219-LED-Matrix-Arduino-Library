@@ -24,62 +24,77 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
  */
 #pragma once
 
-#include <MD_MAX72xx.h>
+#include "MD_MAX72xx.h"
 
 /**
  * \file
  * \brief Includes library definitions
  */
 
-#define MAX_DEBUG 0   ///< Enable or disable (default) debugging output from the MD_MAX72xx library
+#define MAX_DEBUG 0 ///< Enable or disable (default) debugging output from the MD_MAX72xx library
 
 #if MAX_DEBUG
-#define PRINT(s, v)   { Serial.print(F(s)); Serial.print(v); }      ///< Print a string followed by a value (decimal)
-#define PRINTX(s, v)  { Serial.print(F(s)); Serial.print(v, HEX); } ///< Print a string followed by a value (hex)
-#define PRINTB(s, v)  { Serial.print(F(s)); Serial.print(v, BIN); } ///< Print a string followed by a value (binary)
-#define PRINTS(s)     { Serial.print(F(s)); }                       ///< Print a string
+#define PRINT(s, v)                                                                                                    \
+    {                                                                                                                  \
+        Serial.print(F(s));                                                                                            \
+        Serial.print(v);                                                                                               \
+    } ///< Print a string followed by a value (decimal)
+#define PRINTX(s, v)                                                                                                   \
+    {                                                                                                                  \
+        Serial.print(F(s));                                                                                            \
+        Serial.print(v, HEX);                                                                                          \
+    } ///< Print a string followed by a value (hex)
+#define PRINTB(s, v)                                                                                                   \
+    {                                                                                                                  \
+        Serial.print(F(s));                                                                                            \
+        Serial.print(v, BIN);                                                                                          \
+    } ///< Print a string followed by a value (binary)
+#define PRINTS(s)                                                                                                      \
+    {                                                                                                                  \
+        Serial.print(F(s));                                                                                            \
+    } ///< Print a string
 #else
-#define PRINT(s, v)   ///< Print a string followed by a value (decimal)
-#define PRINTX(s, v)  ///< Print a string followed by a value (hex)
-#define PRINTB(s, v)  ///< Print a string followed by a value (binary)
-#define PRINTS(s)     ///< Print a string
+#define PRINT(s, v)  ///< Print a string followed by a value (decimal)
+#define PRINTX(s, v) ///< Print a string followed by a value (hex)
+#define PRINTB(s, v) ///< Print a string followed by a value (binary)
+#define PRINTS(s)    ///< Print a string
 #endif
 
 // Opcodes for the MAX7221 and MAX7219
 // All OP_DIGITn are offsets from OP_DIGIT0
-#define OP_NOOP       0 ///< MAX72xx opcode for NO OP
-#define OP_DIGIT0     1 ///< MAX72xx opcode for DIGIT0
-#define OP_DIGIT1     2 ///< MAX72xx opcode for DIGIT1
-#define OP_DIGIT2     3 ///< MAX72xx opcode for DIGIT2
-#define OP_DIGIT3     4 ///< MAX72xx opcode for DIGIT3
-#define OP_DIGIT4     5 ///< MAX72xx opcode for DIGIT4
-#define OP_DIGIT5     6 ///< MAX72xx opcode for DIGIT5
-#define OP_DIGIT6     7 ///< MAX72xx opcode for DIGIT6
-#define OP_DIGIT7     8 ///< MAX72xx opcode for DIGIT7
+#define OP_NOOP        0  ///< MAX72xx opcode for NO OP
+#define OP_DIGIT0      1  ///< MAX72xx opcode for DIGIT0
+#define OP_DIGIT1      2  ///< MAX72xx opcode for DIGIT1
+#define OP_DIGIT2      3  ///< MAX72xx opcode for DIGIT2
+#define OP_DIGIT3      4  ///< MAX72xx opcode for DIGIT3
+#define OP_DIGIT4      5  ///< MAX72xx opcode for DIGIT4
+#define OP_DIGIT5      6  ///< MAX72xx opcode for DIGIT5
+#define OP_DIGIT6      7  ///< MAX72xx opcode for DIGIT6
+#define OP_DIGIT7      8  ///< MAX72xx opcode for DIGIT7
 #define OP_DECODEMODE  9  ///< MAX72xx opcode for DECODE MODE
 #define OP_INTENSITY   10 ///< MAX72xx opcode for SET INTENSITY
 #define OP_SCANLIMIT   11 ///< MAX72xx opcode for SCAN LIMIT
 #define OP_SHUTDOWN    12 ///< MAX72xx opcode for SHUT DOWN
 #define OP_DISPLAYTEST 15 ///< MAX72xx opcode for DISPLAY TEST
 
-#define ALL_CHANGED   0xff    ///< Mask for all rows changed in a buffer structure
-#define ALL_CLEAR     0x00    ///< Mask for all rows clear in a buffer structure
+#define ALL_CHANGED 0xff ///< Mask for all rows changed in a buffer structure
+#define ALL_CLEAR   0x00 ///< Mask for all rows clear in a buffer structure
 
 #define FONT_FILE_INDICATOR 'F' ///< Font table indicator prefix for info header
 
 // Shortcuts
-#define SPI_DATA_SIZE (sizeof(uint8_t)*_maxDevices*2)   ///< Size of the SPI data buffers
-#define SPI_OFFSET(i,x) (((LAST_BUFFER-(i))*2)+(x))     ///< SPI data offset for buffer i, digit x
+#define SPI_DATA_SIZE    (sizeof(uint8_t) * _maxDevices * 2) ///< Size of the SPI data buffers
+#define SPI_OFFSET(i, x) (((LAST_BUFFER - (i)) * 2) + (x))   ///< SPI data offset for buffer i, digit x
 
 #define FIRST_BUFFER 0                 ///< First buffer number
-#define LAST_BUFFER  (_maxDevices-1)   ///< Last buffer number
+#define LAST_BUFFER  (_maxDevices - 1) ///< Last buffer number
 
 // Macros to map reversed ROW and COLUMN coordinates
 #define HW_ROW(r) (_hwRevRows ? (ROW_SIZE - 1 - (r)) : (r)) ///< Pixel to hardware coordinate row mapping
 #define HW_COL(c) (_hwRevCols ? (COL_SIZE - 1 - (c)) : (c)) ///< Pixel to hardware coordinate column mapping
 
 // variables shared in the library
-extern const uint8_t PROGMEM _sysfont[];  ///< System variable pitch font table
+extern const uint8_t PROGMEM _sysfont[]; ///< System variable pitch font table
 
 /**
 \page pageHardware Hardware
@@ -109,7 +124,7 @@ ___
 The Parola Module
 -----------------
 These custom modules allow a 'lego-like' approach to LED matrix display, using standard
-8x8 on LED matrices. The software supports this flexibility through a scalable approach 
+8x8 on LED matrices. The software supports this flexibility through a scalable approach
 that only requires the definition of the number of modules to adapt existing software to
 a new configuration.
 
@@ -232,7 +247,8 @@ ____
 \page pageICStation ICStation Module
 ICStation DIY Kit Module
 ------------------------
-These modules are available as kits from ICStation (http://www.icstation.com/product_info.php?products_id=2609#.UxqVJyxWGHs).
+These modules are available as kits from ICStation
+(http://www.icstation.com/product_info.php?products_id=2609#.UxqVJyxWGHs).
 
 ![ICStation Module] (ICStation_Module.jpg "ICStation Module")
 ____
@@ -266,7 +282,7 @@ FC-16 DIY Kit Module
 ----------------------
 These modules are available as kits from some internet suppliers such as G&C Supermarket on eBay
 (http://stores.ebay.com.au/gcsupermarkethkcoltd/). They are identifiable by the FC-16 designation
-silk screened on the PCB. Most of the available sets of 4 modules connected as one unit are 
+silk screened on the PCB. Most of the available sets of 4 modules connected as one unit are
 FC-16 type.
 
 ![FC-16 Module] (FC-16_Module.jpg "FC-16 Module")
@@ -329,7 +345,7 @@ are limited to combinations (8 in total) of
 - a reversal of row indices, and
 - a reversal of column indices.
 
-The hardware types defined in MD_MAX72xx.h activate different library code by setting 
+The hardware types defined in MD_MAX72xx.h activate different library code by setting
 the parameters that specify the correct way to handle these differences.
 
 Determining the type of mapping
@@ -367,8 +383,8 @@ Note that in some situations using the module 'upside down' will result in a bet
 than would otherwise be the case. An example of this is the generic module mapping. Also remember
 that the modules are daisy chained from right to left.
 
-Having determined the values for the module type, this can be used in the application. If the type 
-does not correspond to a standard type, then it is possible to set an alternative although these 
+Having determined the values for the module type, this can be used in the application. If the type
+does not correspond to a standard type, then it is possible to set an alternative although these
 are not guaranteed to work unless they have been tested. Alternative hardware names follow a template
 structure given in the table below
 
@@ -397,7 +413,7 @@ Version 2: Fonts allows for up to 65535 characters in the font table:
 - byte 0 - the character 'F'
 - byte 1 - the version for the file format (2)
 - byte 2 - high byte of the code of the first character in the table
-- byte 3 - low byte of the code of first character in the table 
+- byte 3 - low byte of the code of first character in the table
 - byte 4 - high byte of the code of the last character in the table
 - byte 5 - low byte of the code of last character in the table
 - byte 6 - the height of the character in pixels
@@ -418,7 +434,7 @@ leftmost column of the character. The least significant bit of the byte is the b
 pixel position of the character matrix (row 7).
 
 Version 0: If the 'F' is omitted then the font definition is considered a version 0 font (prior to
-MD_MAX72xx version 3.0.0) and the defaults are set to min ASCII 0, max ASCII 255, height 8. 
+MD_MAX72xx version 3.0.0) and the defaults are set to min ASCII 0, max ASCII 255, height 8.
 In this case byte 5 of the Version 1 font is the first byte in the file.
 
 To find a character in the font table, the library looks at the first byte (size),
@@ -509,4 +525,3 @@ alternatives to the 'official' releases:
 - https://github.com/vasco65/md_max72xx-font-designer
 
 */
-
