@@ -13,7 +13,7 @@
 #include <SPI.h>
 
 #define IMMEDIATE_NEW   0 // if 1 will immediately display a new message
-#define USE_POT_CONTROL 1
+#define USE_POT_CONTROL 0
 #define PRINT_CALLBACK  0
 
 #define PRINT(s, v)                                                                                                    \

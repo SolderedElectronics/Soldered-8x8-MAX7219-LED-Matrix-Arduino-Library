@@ -43,7 +43,11 @@
 Led_Matrix mx = Led_Matrix(CS_PIN, MAX_DEVICES);
 
 // Analog input pin for the input value
+#ifdef __AVR__
 #define SPEED_IN A5
+#else
+#define SPEED_IN 5
+#endif
 
 // Display and animation parameters
 #define CHAR_SPACING          1  // pixels between characters
