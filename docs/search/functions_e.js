@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['update_390',['update',['../class_m_d___m_a_x72_x_x.html#a3f91498bfc0023f67d4bf1284ca70317',1,'MD_MAX72XX::update(controlValue_t mode)'],['../class_m_d___m_a_x72_x_x.html#a4d51360880d7a6fa33a6f917cf423879',1,'MD_MAX72XX::update(void)'],['../class_m_d___m_a_x72_x_x.html#a9cc242e22748229a223851217b76fd4e',1,'MD_MAX72XX::update(uint8_t buf)']]]
+  ['_7emd_5feyepair_370',['~MD_EyePair',['../class_m_d___eye_pair.html#aa41c1b7edde51ae210854f1eb6cd7cb9',1,'MD_EyePair']]],
+  ['_7emd_5fmax72xx_371',['~MD_MAX72XX',['../class_m_d___m_a_x72_x_x.html#afffa5b85187905f713477435187b3759',1,'MD_MAX72XX']]],
+  ['_7emd_5froboteyes_372',['~MD_RobotEyes',['../class_m_d___robot_eyes.html#aaee2024a29f97946b6f069936ba34ebe',1,'MD_RobotEyes']]]
 ];

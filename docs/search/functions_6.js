@@ -1,17 +1,8 @@
 var searchData=
 [
-  ['getbuffer_337',['getBuffer',['../class_m_d___m_a_x72_x_x.html#afee0d78eed2563729e21a765289c9cbe',1,'MD_MAX72XX']]],
-  ['getc_338',['getC',['../class_m_d___m_a_x72_x_x.html#a8576205a6cb4928492d475f05286aa74',1,'MD_MAX72XX']]],
-  ['getchar_339',['getChar',['../class_m_d___m_a_x72_x_x.html#a40e7ace9bfcba9b66620849232070667',1,'MD_MAX72XX']]],
-  ['getcolumn_340',['getColumn',['../class_m_d___m_a_x72_x_x.html#aa211a3ed433222911e1d01800357527a',1,'MD_MAX72XX::getColumn(uint8_t c)'],['../class_m_d___m_a_x72_x_x.html#ab0db87a521190dad074e4b240a8288fb',1,'MD_MAX72XX::getColumn(uint8_t buf, uint8_t c)']]],
-  ['getcolumncount_341',['getColumnCount',['../class_m_d___m_a_x72_x_x.html#a2fb151890cf022197b58a546f75e9e20',1,'MD_MAX72XX']]],
-  ['getdevicecount_342',['getDeviceCount',['../class_m_d___m_a_x72_x_x.html#a5508f498566c3b3e80422e6ff9501ec3',1,'MD_MAX72XX']]],
-  ['getfont_343',['getFont',['../class_m_d___m_a_x72_x_x.html#a4b59272f96f8cae6a41ad7dd0cd5aae2',1,'MD_MAX72XX']]],
-  ['getfontcharoffset_344',['getFontCharOffset',['../class_m_d___m_a_x72_x_x.html#a24d6d232f9e383710b8dc4fffa241582',1,'MD_MAX72XX']]],
-  ['getfontheight_345',['getFontHeight',['../class_m_d___m_a_x72_x_x.html#a899895fcca3bd4dc424eb78397553077',1,'MD_MAX72XX']]],
-  ['getfontwidth_346',['getFontWidth',['../class_m_d___m_a_x72_x_x.html#afe178c2c2399b7995109e90d68ce5ffa',1,'MD_MAX72XX']]],
-  ['getmaxfontwidth_347',['getMaxFontWidth',['../class_m_d___m_a_x72_x_x.html#a88b4a38d90588e39ffc70986a501ed2e',1,'MD_MAX72XX']]],
-  ['getpoint_348',['getPoint',['../class_m_d___m_a_x72_x_x.html#aa1533adc9aa15e29a143e69d9db12881',1,'MD_MAX72XX']]],
-  ['getr_349',['getR',['../class_m_d___m_a_x72_x_x.html#a505be40970abddf2e0ce56e732e18a04',1,'MD_MAX72XX']]],
-  ['getrow_350',['getRow',['../class_m_d___m_a_x72_x_x.html#a59eefabcaf003dc37dd17f41c5d6d211',1,'MD_MAX72XX']]]
+  ['led_5fmatrix_334',['Led_Matrix',['../class_led___matrix.html#a016977c93c2eb1d39c0b5f6abd0abe7d',1,'Led_Matrix::Led_Matrix(int csPin, int maxDevices)'],['../class_led___matrix.html#ad9db87c6dd5b7c35d24fdcbd55b5fab3',1,'Led_Matrix::Led_Matrix(int dataPin, int clkPin, int csPin, int maxDevices)']]],
+  ['loadeye_335',['loadEye',['../class_m_d___robot_eyes.html#a872ad19b25dc217dbf1417377b8501fd',1,'MD_RobotEyes']]],
+  ['loadfontinfo_336',['loadFontInfo',['../class_m_d___m_a_x72_x_x.html#ab423a54f8af5ec4822d20a433ad95c97',1,'MD_MAX72XX']]],
+  ['loadframe_337',['loadFrame',['../class_m_d___robot_eyes.html#a0effaf3d33efae4cfd0029bc862fd164',1,'MD_RobotEyes']]],
+  ['loadsequence_338',['loadSequence',['../class_m_d___robot_eyes.html#a7951e22b8c97b1e8723c24bd4e22c97f',1,'MD_RobotEyes']]]
 ];

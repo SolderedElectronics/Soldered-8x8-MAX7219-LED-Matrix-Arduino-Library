@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['readdata_361',['readData',['../class_easy_c.html#a9a3d39be50b348768bc4b5dea3dae01a',1,'EasyC']]],
-  ['readregister_362',['readRegister',['../class_easy_c.html#a45bd6c915c1fa0998e273f69ee2d2376',1,'EasyC']]],
-  ['runanimation_363',['runAnimation',['../class_m_d___robot_eyes.html#ab30a9d167b84ce2c86f7843076fa2248',1,'MD_RobotEyes']]]
+  ['transform_366',['transform',['../class_m_d___m_a_x72_x_x.html#aa81af9a9e4309d9971bec7da3eef5890',1,'MD_MAX72XX::transform(transformType_t ttype)'],['../class_m_d___m_a_x72_x_x.html#a8ffcd0e496053262109b20fc020c1d12',1,'MD_MAX72XX::transform(uint8_t startDev, uint8_t endDev, transformType_t ttype)'],['../class_m_d___m_a_x72_x_x.html#a67f8567afe489f497f75448a3137a1ef',1,'MD_MAX72XX::transform(uint8_t buf, transformType_t ttype)']]],
+  ['transformbuffer_367',['transformBuffer',['../class_m_d___m_a_x72_x_x.html#ac5556db3a51f3acf7190540f092ef217',1,'MD_MAX72XX']]]
 ];

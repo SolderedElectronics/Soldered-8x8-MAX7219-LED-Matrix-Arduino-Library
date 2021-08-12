@@ -1,4 +1,25 @@
 var searchData=
 [
-  ['posisadjacent_360',['posIsAdjacent',['../class_m_d___eye_pair.html#ad4b38096666d5222ec387688c6c8914c',1,'MD_EyePair']]]
+  ['seedout_344',['seedOut',['../class_m_d___eye_pair.html#a0b3cbd4a6fd2112bfeab8381552b6388',1,'MD_EyePair']]],
+  ['setanimation_345',['setAnimation',['../class_m_d___robot_eyes.html#ad53a99adef65240fbee524de7ad45df2',1,'MD_RobotEyes']]],
+  ['setautoblink_346',['setAutoBlink',['../class_m_d___robot_eyes.html#ab074bd4eced03712f8e48b5e06fe18d5',1,'MD_RobotEyes']]],
+  ['setblinktime_347',['setBlinkTime',['../class_m_d___robot_eyes.html#a7b10f9b4722e0ee4dc626ebfc28eebcb',1,'MD_RobotEyes']]],
+  ['setbuffer_348',['setBuffer',['../class_m_d___m_a_x72_x_x.html#a1aaabf8c4df556c3e9a04a1319234261',1,'MD_MAX72XX']]],
+  ['setc_349',['setC',['../class_m_d___m_a_x72_x_x.html#a6228de3ae3da148caa7af7612c803735',1,'MD_MAX72XX']]],
+  ['setchar_350',['setChar',['../class_m_d___m_a_x72_x_x.html#ae0bb8f197ef89389374f83717f0a1c3d',1,'MD_MAX72XX']]],
+  ['setcolumn_351',['setColumn',['../class_m_d___m_a_x72_x_x.html#ab3f2885a67e435198b5b01505030165d',1,'MD_MAX72XX::setColumn(uint16_t c, uint8_t value)'],['../class_m_d___m_a_x72_x_x.html#a7788a0bdbef1a302a7652998b21703bd',1,'MD_MAX72XX::setColumn(uint8_t buf, uint8_t c, uint8_t value)']]],
+  ['setfont_352',['setFont',['../class_m_d___m_a_x72_x_x.html#a16655f29d088d8ce1d557abcb703513d',1,'MD_MAX72XX']]],
+  ['setfontinfodefault_353',['setFontInfoDefault',['../class_m_d___m_a_x72_x_x.html#a0fb110ae8303ad632be8423f72b1ec2c',1,'MD_MAX72XX']]],
+  ['setmoduleparameters_354',['setModuleParameters',['../class_m_d___m_a_x72_x_x.html#a2cf746bcce5eb802b5732ea92bf2c7aa',1,'MD_MAX72XX']]],
+  ['setmoduletype_355',['setModuleType',['../class_m_d___m_a_x72_x_x.html#ab68333e23c99212d9574b39ed7e67a96',1,'MD_MAX72XX']]],
+  ['setpoint_356',['setPoint',['../class_m_d___m_a_x72_x_x.html#a1078a6ad9ae77ff7ef75f78d86f04da7',1,'MD_MAX72XX']]],
+  ['setr_357',['setR',['../class_m_d___m_a_x72_x_x.html#a68dfc097e976ebf94d2edd173e6a3361',1,'MD_MAX72XX']]],
+  ['setrow_358',['setRow',['../class_m_d___m_a_x72_x_x.html#a9c3c6ea52bfe61fc0279d9deb98a9e6e',1,'MD_MAX72XX::setRow(uint8_t r, uint8_t value)'],['../class_m_d___m_a_x72_x_x.html#a238cb42149b473027fd203406828dc35',1,'MD_MAX72XX::setRow(uint8_t startDev, uint8_t endDev, uint8_t r, uint8_t value)'],['../class_m_d___m_a_x72_x_x.html#afff77a9eb68408447a15172d7555d794',1,'MD_MAX72XX::setRow(uint8_t buf, uint8_t r, uint8_t value)']]],
+  ['setshiftdataincallback_359',['setShiftDataInCallback',['../class_m_d___m_a_x72_x_x.html#a8e126c7e12fbca524ef93befad3db825',1,'MD_MAX72XX']]],
+  ['setshiftdataoutcallback_360',['setShiftDataOutCallback',['../class_m_d___m_a_x72_x_x.html#af4672c2b149198fb682d9aa2518f3505',1,'MD_MAX72XX']]],
+  ['settext_361',['setText',['../class_m_d___robot_eyes.html#a94a458947d9fc573bcf88df0e01dbff3',1,'MD_RobotEyes']]],
+  ['shorter_362',['shorter',['../_doxyfile_8dox.html#add553ff57c15663895c903251c0ea5c7',1,'Doxyfile.dox']]],
+  ['showtext_363',['showText',['../class_m_d___robot_eyes.html#a201d2502fc74f6c127339ab3efe58e3a',1,'MD_RobotEyes']]],
+  ['spiclearbuffer_364',['spiClearBuffer',['../class_m_d___m_a_x72_x_x.html#a870ae1600e241ffa4b9c9910bf5bef22',1,'MD_MAX72XX']]],
+  ['spisend_365',['spiSend',['../class_m_d___m_a_x72_x_x.html#a4690478c16105ba9ab7774db620fa69d',1,'MD_MAX72XX']]]
 ];

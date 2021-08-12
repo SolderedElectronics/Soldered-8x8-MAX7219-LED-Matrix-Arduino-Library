@@ -67,7 +67,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_font___data_8h.html",
-"class_m_d___robot_eyes.html#ab074bd4eced03712f8e48b5e06fe18d5"
+"files.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
