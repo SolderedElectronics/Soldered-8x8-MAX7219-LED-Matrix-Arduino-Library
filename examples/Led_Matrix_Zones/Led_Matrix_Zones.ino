@@ -15,11 +15,11 @@
 // need to be adapted
 
 #define MAX_DEVICES 8 // 2, 4, 6, or 8 work best - see Z array
-
+#define HARDWARE_TYPE Led_Matrix::PAROLA_HW
 #define CS_PIN 10 // or SS
 
 // SPI hardware interface
-Led_Matrix mx = Led_Matrix(CS_PIN, MAX_DEVICES);
+Led_Matrix mx = Led_Matrix(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);
 // Arbitrary pins
 // Led_Matrix mx = Led_Matrix(HARDWARE_TYPE, DATA_PIN, CLK_PIN, CS_PIN, MAX_DEVICES);
 

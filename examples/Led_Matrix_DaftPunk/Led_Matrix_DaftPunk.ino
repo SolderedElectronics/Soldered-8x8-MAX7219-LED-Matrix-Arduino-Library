@@ -68,7 +68,7 @@
 #define DATA_PIN      11 // or MOSI
 #define CS_PIN        10 // or SS
 
-Led_Matrix mx = Led_Matrix(CS_PIN, MAX_DEVICES); // SPI hardware interface
+Led_Matrix mx = Led_Matrix(HARDWARE_TYPE, CS_PIN, MAX_DEVICES); // SPI hardware interface
 
 #if !RUN_DEMO
 // --------------------

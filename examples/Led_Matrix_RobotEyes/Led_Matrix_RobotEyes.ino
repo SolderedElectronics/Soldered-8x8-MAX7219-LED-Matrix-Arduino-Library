@@ -9,12 +9,13 @@
 #include "MD_RobotEyes.h"
 #include <SPI.h>
 
+#define HARDWARE_TYPE Led_Matrix::PAROLA_HW
 #define MAX_DEVICES 2
 
 #define CS_PIN 10 // or SS
 
 // SPI hardware interface
-Led_Matrix M = Led_Matrix(CS_PIN, MAX_DEVICES);
+Led_Matrix M = Led_Matrix(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);
 
 MD_RobotEyes E;
 
