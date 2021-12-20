@@ -22,6 +22,10 @@ class Led_Matrix : public MD_MAX72XX
     {
     }
 
+    Led_Matrix(moduleType_t mod,int csPin, int maxDevices) : MD_MAX72XX(mod, csPin, maxDevices)
+    {
+    }
+
     Led_Matrix(int dataPin, int clkPin, int csPin, int maxDevices)
         : MD_MAX72XX(GENERIC_HW, dataPin, clkPin, csPin, maxDevices)
     {

@@ -33,7 +33,7 @@
 #define CS_PIN   10 // or SS
 
 // SPI hardware interface
-Led_Matrix mx = Led_Matrix(CS_PIN, MAX_DEVICES);
+Led_Matrix mx = Led_Matrix(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);
 
 // Scrolling parameters
 #if USE_POT_CONTROL

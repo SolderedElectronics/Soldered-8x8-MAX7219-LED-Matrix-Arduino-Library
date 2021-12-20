@@ -33,14 +33,14 @@
 // Define the number of devices we have in the chain and the hardware interface
 // NOTE: These pin numbers will probably not work with your hardware and may
 // need to be adapted
+#define HARDWARE_TYPE Led_Matrix::PAROLA_HW
 #define MAX_DEVICES 11
-
 #define CLK_PIN  13 // or SCK
 #define DATA_PIN 11 // or MOSI
 #define CS_PIN   10 // or SS
 
 // SPI hardware interface
-Led_Matrix mx = Led_Matrix(CS_PIN, MAX_DEVICES);
+Led_Matrix mx = Led_Matrix(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);
 
 // Analog input pin for the input value
 #ifdef __AVR__

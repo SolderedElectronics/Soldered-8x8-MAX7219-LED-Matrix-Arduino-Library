@@ -23,13 +23,13 @@
 // need to be adapted
 #define MAX_DEVICES     11
 #define WRAPAROUND_MODE Led_Matrix::ON
-
+#define HARDWARE_TYPE Led_Matrix::PAROLA_HW
 #define CLK_PIN  13 // or SCK
 #define DATA_PIN 11 // or MOSI
 #define CS_PIN   10 // or SS
 
 // SPI hardware interface
-Led_Matrix mx = Led_Matrix(CS_PIN, MAX_DEVICES);
+Led_Matrix mx = Led_Matrix(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);
 
 bool changeState(void)
 {
