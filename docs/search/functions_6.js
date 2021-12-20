@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['led_5fmatrix_334',['Led_Matrix',['../class_led___matrix.html#a016977c93c2eb1d39c0b5f6abd0abe7d',1,'Led_Matrix::Led_Matrix(int csPin, int maxDevices)'],['../class_led___matrix.html#ad9db87c6dd5b7c35d24fdcbd55b5fab3',1,'Led_Matrix::Led_Matrix(int dataPin, int clkPin, int csPin, int maxDevices)']]],
-  ['loadeye_335',['loadEye',['../class_m_d___robot_eyes.html#a872ad19b25dc217dbf1417377b8501fd',1,'MD_RobotEyes']]],
-  ['loadfontinfo_336',['loadFontInfo',['../class_m_d___m_a_x72_x_x.html#ab423a54f8af5ec4822d20a433ad95c97',1,'MD_MAX72XX']]],
-  ['loadframe_337',['loadFrame',['../class_m_d___robot_eyes.html#a0effaf3d33efae4cfd0029bc862fd164',1,'MD_RobotEyes']]],
-  ['loadsequence_338',['loadSequence',['../class_m_d___robot_eyes.html#a7951e22b8c97b1e8723c24bd4e22c97f',1,'MD_RobotEyes']]]
+  ['led_5fmatrix_0',['Led_Matrix',['../class_led___matrix.html#a016977c93c2eb1d39c0b5f6abd0abe7d',1,'Led_Matrix::Led_Matrix(int csPin, int maxDevices)'],['../class_led___matrix.html#a38061c26d36280920bab8b4d71b23568',1,'Led_Matrix::Led_Matrix(moduleType_t mod, int csPin, int maxDevices)'],['../class_led___matrix.html#ad9db87c6dd5b7c35d24fdcbd55b5fab3',1,'Led_Matrix::Led_Matrix(int dataPin, int clkPin, int csPin, int maxDevices)']]],
+  ['loadeye_1',['loadEye',['../class_m_d___robot_eyes.html#a872ad19b25dc217dbf1417377b8501fd',1,'MD_RobotEyes']]],
+  ['loadfontinfo_2',['loadFontInfo',['../class_m_d___m_a_x72_x_x.html#ab423a54f8af5ec4822d20a433ad95c97',1,'MD_MAX72XX']]],
+  ['loadframe_3',['loadFrame',['../class_m_d___robot_eyes.html#a0effaf3d33efae4cfd0029bc862fd164',1,'MD_RobotEyes']]],
+  ['loadsequence_4',['loadSequence',['../class_m_d___robot_eyes.html#a7951e22b8c97b1e8723c24bd4e22c97f',1,'MD_RobotEyes']]]
 ];

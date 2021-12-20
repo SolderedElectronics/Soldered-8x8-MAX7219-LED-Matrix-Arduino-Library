@@ -67,7 +67,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_font___data_8h.html",
-"files.html"
+"classes.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
