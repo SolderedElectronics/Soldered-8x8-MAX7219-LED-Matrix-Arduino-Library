@@ -48,5 +48,6 @@ jobs:
           libraries: |
             - source-path: ./
             - name: MD_UISwitch
+            - name: MD_MAX72XX
           sketch-paths: |
             - ./examples/
