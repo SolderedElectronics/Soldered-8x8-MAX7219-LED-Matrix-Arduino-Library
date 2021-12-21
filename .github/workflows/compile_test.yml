@@ -47,5 +47,6 @@ jobs:
           fqbn: ${{ matrix.board.fqbn }}
           libraries: |
             - source-path: ./
+            - name: MD_UISwitch
           sketch-paths: |
             - ./examples/
