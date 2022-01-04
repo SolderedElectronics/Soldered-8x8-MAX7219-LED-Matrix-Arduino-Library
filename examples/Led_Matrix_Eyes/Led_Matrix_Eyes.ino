@@ -33,11 +33,11 @@ MD_EyePair E[MAX_EYE_PAIR];
 
 void setup()
 {
-    M.begin();
+    mx.begin();
 
     // initialize the eye view
     for (uint8_t i = 0; i < MAX_EYE_PAIR; i++)
-        E[i].begin(i * 2, &M, DELAYTIME);
+        E[i].begin(i * 2, &mx, DELAYTIME);
 }
 
 void loop()
