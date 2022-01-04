@@ -19,7 +19,7 @@ You can find hardware design for this board in 8x8 Led Matrix hardware repositor
 
 ### Documentation
 
-Access Arduino library documentation [here](https://e-radionicacom.github.io/Soldered-8x8-Led-Matrix-Arduino-Library/).
+Access Arduino library documentation [here](https://e-radionicacom.github.io/Soldered-8x8-MAX7219-LED-Matrix-Arduino-Library/).
 
 - Tutorial for using the 8x8 Led Matrix board
 - Installing an Arduino library
