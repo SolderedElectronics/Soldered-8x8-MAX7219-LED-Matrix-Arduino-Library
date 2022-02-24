@@ -1,8 +1,17 @@
-// Program to exercise the Led_Matrix library
-//
-// Test the library transformation functions with range subsets
-//
-// Modified by Soldered for use on https://solde.red/333062
+/**
+ **************************************************
+ *
+ * @file        Led_Matrix_Zones.ino
+ * @brief       Program to exercise the Led_Matrix library
+ * 
+ *              Test the library transformation functions with range subsets
+ *
+ * @authors     Goran Juric for Soldered.com
+ * 
+ *              Modified by Soldered for use on https://solde.red/333062, https://solde.red/333148,
+ *              https://solde.red/333149, https://solde.red/333150, https://solde.red/333151 and
+ *              https://solde.red/333152
+ ***************************************************/
 
 #include "Led-Matrix-SOLDERED.h"
 #include <SPI.h>

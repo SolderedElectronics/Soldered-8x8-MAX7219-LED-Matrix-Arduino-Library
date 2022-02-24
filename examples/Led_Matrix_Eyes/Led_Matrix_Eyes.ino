@@ -1,10 +1,17 @@
-// Program to exercise the Led_Matrix library
-//
-// Uses the graphics functions to animate a pair of eyes on 2 matrix modules.
-// Eyes are coordinated to work together.
-// Eyes are created to fill all available modules.
-//
-// Modified by Soldered for use on https://solde.red/333062
+/**
+ **************************************************
+ *
+ * @file        Led_Matrix_Eyes.ino
+ * @brief       Uses the graphics functions to animate a pair of eyes on 2 matrix modules.
+ *              Eyes are coordinated to work together.
+ *              Eyes are created to fill all available modules.
+ *
+ * @authors     Goran Juric for Soldered.com
+ * 
+ *              Modified by Soldered for use on https://solde.red/333062, https://solde.red/333148,
+ *              https://solde.red/333149, https://solde.red/333150, https://solde.red/333151 and
+ *              https://solde.red/333152
+ ***************************************************/
 
 #include "Led-Matrix-SOLDERED.h"
 #include "MD_EyePair.h"

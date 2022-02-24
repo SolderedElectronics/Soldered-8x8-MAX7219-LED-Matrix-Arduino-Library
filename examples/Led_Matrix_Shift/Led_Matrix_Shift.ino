@@ -1,8 +1,17 @@
-// Program to exercise the Led_Matrix library
-//
-// Test the library transformation functions
-//
-// Modified by Soldered for use on https://solde.red/333062
+/**
+ **************************************************
+ *
+ * @file        Led_Matrix_Shift.ino
+ * @brief       Program to exercise the Led_Matrix library
+ * 
+ *              Test the library transformation functions.
+ *
+ * @authors     Goran Juric for Soldered.com
+ * 
+ *              Modified by Soldered for use on https://solde.red/333062, https://solde.red/333148,
+ *              https://solde.red/333149, https://solde.red/333150, https://solde.red/333151 and
+ *              https://solde.red/333152
+ ***************************************************/
 
 #include "Led-Matrix-SOLDERED.h"
 #include <SPI.h>

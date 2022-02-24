@@ -1,14 +1,22 @@
-// Use the Led_Matrix library to Display a Daft Punk LED Helmet
-//
-// If RUN_DEMO is set to zero the display cycles changes triggered by a switch on
-// the MODE_SWITCH pin. This can be substituted for any trigger as implemented
-// by the helmet wearer.
-// If RUN_DEMO is set to 1 the sketch will cycle each element of the display every
-// DEMO_DELAY seconds, without the need for a switch.
-//
-// Modified by Soldered for use on https://solde.red/333062
-//
-// Uses the MD_UISwitch library found at https://github.com/MajicDesigns/MD_UISwitch
+/**
+ **************************************************
+ *
+ * @file        Led_Matrix_DaftPunk.ino
+ * @brief       If RUN_DEMO is set to zero the display cycles changes triggered by a switch on
+ *              the MODE_SWITCH pin. This can be substituted for any trigger as implemented
+ *              by the helmet wearer.
+ *              If RUN_DEMO is set to 1 the sketch will cycle each element of the display every
+ *              DEMO_DELAY seconds, without the need for a switch.
+ * 
+ *              Uses the MD_UISwitch library found at https://github.com/MajicDesigns/MD_UISwitch
+ *
+ *
+ * @authors     Goran Juric for Soldered.com
+ * 
+ *              Modified by Soldered for use on https://solde.red/333062, https://solde.red/333148,
+ *              https://solde.red/333149, https://solde.red/333150, https://solde.red/333151 and
+ *              https://solde.red/333152
+ ***************************************************/
 
 #define RUN_DEMO 1
 

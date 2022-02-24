@@ -1,9 +1,19 @@
-// Use the Led_Matrix library to create an mechanical pushwheel type display
-// When numbers change they are scrolled up or down as if on a cylinder
-//
-// 'Speed' displayed is read from pot on SPEED_IN analog in.
-//
-// Modified by Soldered for use on https://solde.red/333062
+/**
+ **************************************************
+ *
+ * @file        Led_Matrix_PushWheel.ino
+ * @brief       Use the Led_Matrix library to create an mechanical pushwheel type display
+ * 
+ *              When numbers change they are scrolled up or down as if on a cylinder
+ * 
+ *              'Speed' displayed is read from pot on SPEED_IN analog in.
+ *
+ * @authors     Goran Juric for Soldered.com
+ * 
+ *              Modified by Soldered for use on https://solde.red/333062, https://solde.red/333148,
+ *              https://solde.red/333149, https://solde.red/333150, https://solde.red/333151 and
+ *              https://solde.red/333152
+ ***************************************************/
 
 #include "Font_Data.h"
 #include "Led-Matrix-SOLDERED.h"

@@ -1,11 +1,20 @@
-// Use the Led_Matrix library to Print some text on the display
-//
-// Demonstrates the use of the library to print text.
-//
-// User can enter text on the serial monitor and this will display as a
-// message on the display.
-//
-// Modified by Soldered for use on https://solde.red/333062
+/**
+ **************************************************
+ *
+ * @file        Led_Matrix_PrintText.ino
+ * @brief       Use the Led_Matrix library to Print some text on the display
+ * 
+ *              Demonstrates the use of the library to print text.
+ * 
+ *              User can enter text on the serial monitor and this will display as a
+ *              message on the display.
+ *
+ * @authors     Goran Juric for Soldered.com
+ * 
+ *              Modified by Soldered for use on https://solde.red/333062, https://solde.red/333148,
+ *              https://solde.red/333149, https://solde.red/333150, https://solde.red/333151 and
+ *              https://solde.red/333152
+ ***************************************************/
 
 #include "Led-Matrix-SOLDERED.h"
 #include <SPI.h>

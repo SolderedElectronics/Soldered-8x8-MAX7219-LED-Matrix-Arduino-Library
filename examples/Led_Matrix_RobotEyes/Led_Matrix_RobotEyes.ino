@@ -1,9 +1,19 @@
-// Program to exercise the Led_Matrix library
-//
-// Uses a sequence of bitmaps defined as a font to display animations of eyes to convey emotion.
-// Eyes are coordinated to work together.
-//
-// Modified by Soldered for use on https://solde.red/333062
+/**
+ **************************************************
+ *
+ * @file        Led_Matrix_RobotEyes.ino
+ * @brief       Program to exercise the Led_Matrix library
+ * 
+ *              Uses a sequence of bitmaps defined as a font to display animations of eyes to convey emotion.
+ * 
+ *              Eyes are coordinated to work together.
+ *
+ * @authors     Goran Juric for Soldered.com
+ * 
+ *              Modified by Soldered for use on https://solde.red/333062, https://solde.red/333148,
+ *              https://solde.red/333149, https://solde.red/333150, https://solde.red/333151 and
+ *              https://solde.red/333152
+ ***************************************************/
 
 #include "Led-Matrix-SOLDERED.h"
 #include "MD_RobotEyes.h"
