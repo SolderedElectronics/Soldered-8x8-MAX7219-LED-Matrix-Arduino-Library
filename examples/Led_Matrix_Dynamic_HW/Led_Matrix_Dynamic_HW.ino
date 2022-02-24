@@ -1,11 +1,20 @@
-// Use the Led_Matrix library to Print some text on the display
-// while cycling through the hardware types.
-//
-// Easy way to determine what type of hardware is being used.
-// Prints out the module type - the one that is legible is the type
-// of hardware being used.
-//
-// Modified by Soldered for use on https://solde.red/333062
+/**
+ **************************************************
+ *
+ * @file        Led_Matrix_Dynamic_HW.ino
+ * @brief       Use the Led_Matrix library to Print some text on the display
+ *              while cycling through the hardware types.
+ *              Easy way to determine what type of hardware is being used.
+ *              Prints out the module type - the one that is legible is the type
+ *              of hardware being used.
+ *
+ *
+ * @authors     Goran Juric for Soldered.com
+ * 
+ *              Modified by Soldered for use on https://solde.red/333062, https://solde.red/333148,
+ *              https://solde.red/333149, https://solde.red/333150, https://solde.red/333151 and
+ *              https://solde.red/333152
+ ***************************************************/
 
 #include "Led-Matrix-SOLDERED.h"
 #include <SPI.h>

@@ -1,13 +1,21 @@
-// Use the Led_Matrix library to scroll text on the display
-//
-// Demonstrates the use of the callback function to control what
-// is scrolled on the display text.
-//
-// User can enter text on the serial monitor and this will display as a
-// scrolling message on the display.
-// Speed for the display is controlled by a pot on SPEED_IN analog in.
-//
-// Modified by Soldered for use on https://solde.red/333062
+/**
+ **************************************************
+ *
+ * @file        Led_Matrix_Message_Serial.ino
+ * @brief       Demonstrates the use of the callback function to control what
+ *              is scrolled on the display text.
+ * 
+ *              User can enter text on the serial monitor and this will display as a
+ *              scrolling message on the display.
+ * 
+ *              Speed for the display is controlled by a pot on SPEED_IN analog in.
+ *
+ * @authors     Goran Juric for Soldered.com
+ * 
+ *              Modified by Soldered for use on https://solde.red/333062, https://solde.red/333148,
+ *              https://solde.red/333149, https://solde.red/333150, https://solde.red/333151 and
+ *              https://solde.red/333152
+ ***************************************************/
 
 #include "Led-Matrix-SOLDERED.h"
 #include <SPI.h>

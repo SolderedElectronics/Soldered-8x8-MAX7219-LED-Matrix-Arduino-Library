@@ -1,10 +1,19 @@
-// Use the Led_Matrix library to play Pong
-//
-// Play pong on just one matrix. Bat is controlled by 2
-// switches for left and right movement. Optionally use
-// a pot on analog input to set the speed.
-//
-// Modified by Soldered for use on https://solde.red/333062
+/**
+ **************************************************
+ *
+ * @file        Led_Matrix_SimplePong.ino
+ * @brief       Use the Led_Matrix library to play Pong
+ * 
+ *              Play pong on just one matrix. Bat is controlled by 2
+ *              switches for left and right movement. Optionally use
+ *              a pot on analog input to set the speed.
+ *
+ * @authors     Goran Juric for Soldered.com
+ * 
+ *              Modified by Soldered for use on https://solde.red/333062, https://solde.red/333148,
+ *              https://solde.red/333149, https://solde.red/333150, https://solde.red/333151 and
+ *              https://solde.red/333152
+ ***************************************************/
 
 #include "Led-Matrix-SOLDERED.h"
 #include <SPI.h>
