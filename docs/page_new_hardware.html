@@ -89,7 +89,7 @@ $(document).ready(function(){initNavTree('page_new_hardware.html',''); initResiz
   <div class="headertitle"><div class="title">New Hardware Types </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h2><a class="anchor" id="autotoc_md42"></a>
+<div class="textblock"><h2><a class="anchor" id="autotoc_md30"></a>
 A word on coordinate systems</h2>
 <p >Two Cartesian coordinate systems are used in the library</p><ul>
 <li>one defines the pixels seen (<em>display coordinates</em>), and</li>
@@ -102,7 +102,7 @@ A word on coordinate systems</h2>
 <p >All user functions are consistent and use display coordinates.</p>
 <p >Display memory buffers are stored in hardware coordinates that depend on the hardware configuration (i.e. the module type). It is the job of the low level library functions to map display to hardware coordinates. Digit 0 is the lowest row/column number and Segment G is the lowest column/row number.</p>
 <p >All the code to do this is in the is in the buffer and pixel modules. All other library modules are use the primitives made available in these modules.</p>
-<h2><a class="anchor" id="autotoc_md43"></a>
+<h2><a class="anchor" id="autotoc_md31"></a>
 What needs to change?</h2>
 <p >As there is no standard way of wiring a LED matrix to the MAX72xx IC, each hardware type definition activates a series of coordinate mapping transformations. Possible changes are limited to combinations (8 in total) of</p><ul>
 <li>swapping rows and column coordinates (digits and segments in MAX72xx),</li>
@@ -110,7 +110,7 @@ What needs to change?</h2>
 <li>a reversal of column indices.</li>
 </ul>
 <p >The hardware types defined in <a class="el" href="_m_d___m_a_x72xx_8h.html" title="Main header file for the MD_MAX72xx library.">MD_MAX72xx.h</a> activate different library code by setting the parameters that specify the correct way to handle these differences.</p>
-<h2><a class="anchor" id="autotoc_md44"></a>
+<h2><a class="anchor" id="autotoc_md32"></a>
 Determining the type of mapping</h2>
 <p >The library example code includes a utility called MD_MAX72xx_HW_Mapper. This is test software to map display hardware rows and columns. It uses a generic SPI interface and only one MAX72xx/8x8 LED module required. It is independent of the libraries as the code is used to directly map the display orientation by setting pixels on the display and printing to the serial monitor which MAX72xx hardware component (segment and digit) is being exercised.</p>
 <p >By observing the LED display and the serial monitor you can build a map like the one below. It is worth noting the direction in which the rows and columns are scanned by the utility, as this is the easiest way to work out the row/column reversal values.</p>
@@ -160,7 +160,7 @@ Seg DP
     <ul>
         <li class="navelem"><a class="el" href="index.html">8x8 Led Matrix by Soldered Arduino library</a></li><li class="navelem"><a class="el" href="page_hardware.html">Hardware</a></li>
         <li class="footer">
-            Generated on Mon Feb 28 2022 07:54:32 for 8x8 Led Matrix Library by <a href="http://www.doxygen.org/index.html">
+            Generated on Tue May 3 2022 21:42:22 for 8x8 Led Matrix Library by <a href="http://www.doxygen.org/index.html">
                 <img class="footer" src="doxygen.png" alt="doxygen"
                     onerror="this.onerror=null;this.src='doxygen.svg';" /></a> 1.9.3.
             Dark theme by <a href="http://majerle.eu" target="_new">Tilen Majerle</a>. All rights reserved.

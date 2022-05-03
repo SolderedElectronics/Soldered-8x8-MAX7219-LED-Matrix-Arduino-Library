@@ -11,10 +11,7 @@ var searchData=
   ['p_5ftr_8',['P_TR',['../class_m_d___eye_pair.html#a4e8e7ad7c57aef8386554e3441b6685eac96dc6898653cc83b953ac1348977f89',1,'MD_EyePair']]],
   ['parola_20custom_20module_9',['Parola Custom Module',['../page_parola.html',1,'pageHardware']]],
   ['parola_5fhw_10',['PAROLA_HW',['../class_m_d___m_a_x72_x_x.html#a88ea7aada207c02282d091b7be7084e6ab1adfbd7e43930ccfc2317a62447d9f9',1,'MD_MAX72XX']]],
-  ['paths_11',['paths',['../_doxyfile_8dox.html#ab526225d25af244eab86848209ba9512',1,'Doxyfile.dox']]],
-  ['posisadjacent_12',['posIsAdjacent',['../class_m_d___eye_pair.html#ad4b38096666d5222ec387688c6c8914c',1,'MD_EyePair']]],
-  ['pospupil_5ft_13',['posPupil_t',['../class_m_d___eye_pair.html#a4e8e7ad7c57aef8386554e3441b6685e',1,'MD_EyePair']]],
-  ['progmem_14',['PROGMEM',['../_font___data_8h.html#a36de42a5ba118f20e901271e5727c1c7',1,'PROGMEM():&#160;Font_Data.h'],['../_m_d___robot_eyes___data_8h.html#a4287b53e84fad99c510faf7609432020',1,'PROGMEM():&#160;MD_RobotEyes_Data.h']]],
-  ['proposed_20changes_15',['Proposed changes',['../md_src_libs__m_d__m_a_x72_x_x__p_u_l_l__r_e_q_u_e_s_t.html',1,'']]],
-  ['pull_5frequest_2emd_16',['PULL_REQUEST.md',['../_p_u_l_l___r_e_q_u_e_s_t_8md.html',1,'']]]
+  ['posisadjacent_11',['posIsAdjacent',['../class_m_d___eye_pair.html#ad4b38096666d5222ec387688c6c8914c',1,'MD_EyePair']]],
+  ['pospupil_5ft_12',['posPupil_t',['../class_m_d___eye_pair.html#a4e8e7ad7c57aef8386554e3441b6685e',1,'MD_EyePair']]],
+  ['progmem_13',['PROGMEM',['../_font___data_8h.html#a36de42a5ba118f20e901271e5727c1c7',1,'PROGMEM():&#160;Font_Data.h'],['../_m_d___robot_eyes___data_8h.html#a4287b53e84fad99c510faf7609432020',1,'PROGMEM():&#160;MD_RobotEyes_Data.h']]]
 ];

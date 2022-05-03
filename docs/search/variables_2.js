@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['brazilian_0',['Brazilian',['../_doxyfile_8dox.html#a56d2187110b4263f7529a6a3de9b8e38',1,'Doxyfile.dox']]],
-  ['brief_5fmember_5fdesc_1',['BRIEF_MEMBER_DESC',['../_doxyfile_8dox.html#a97f80c6097251c6fb6c2a4214bced2ca',1,'Doxyfile.dox']]]
+  ['dataoffset_0',['dataOffset',['../struct_m_d___m_a_x72_x_x_1_1font_info__t.html#a70880bd06f7e3b29c38020c147bb72ef',1,'MD_MAX72XX::fontInfo_t']]],
+  ['dig_1',['dig',['../struct_m_d___m_a_x72_x_x_1_1device_info__t.html#a2e75bf9ee5de140d8e401550457593da',1,'MD_MAX72XX::deviceInfo_t']]]
 ];

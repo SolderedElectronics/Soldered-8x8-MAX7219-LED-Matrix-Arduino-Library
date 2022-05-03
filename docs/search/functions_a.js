@@ -18,8 +18,7 @@ var searchData=
   ['setshiftdataincallback_15',['setShiftDataInCallback',['../class_m_d___m_a_x72_x_x.html#a8e126c7e12fbca524ef93befad3db825',1,'MD_MAX72XX']]],
   ['setshiftdataoutcallback_16',['setShiftDataOutCallback',['../class_m_d___m_a_x72_x_x.html#af4672c2b149198fb682d9aa2518f3505',1,'MD_MAX72XX']]],
   ['settext_17',['setText',['../class_m_d___robot_eyes.html#a94a458947d9fc573bcf88df0e01dbff3',1,'MD_RobotEyes']]],
-  ['shorter_18',['shorter',['../_doxyfile_8dox.html#add553ff57c15663895c903251c0ea5c7',1,'Doxyfile.dox']]],
-  ['showtext_19',['showText',['../class_m_d___robot_eyes.html#a201d2502fc74f6c127339ab3efe58e3a',1,'MD_RobotEyes']]],
-  ['spiclearbuffer_20',['spiClearBuffer',['../class_m_d___m_a_x72_x_x.html#a870ae1600e241ffa4b9c9910bf5bef22',1,'MD_MAX72XX']]],
-  ['spisend_21',['spiSend',['../class_m_d___m_a_x72_x_x.html#a4690478c16105ba9ab7774db620fa69d',1,'MD_MAX72XX']]]
+  ['showtext_18',['showText',['../class_m_d___robot_eyes.html#a201d2502fc74f6c127339ab3efe58e3a',1,'MD_RobotEyes']]],
+  ['spiclearbuffer_19',['spiClearBuffer',['../class_m_d___m_a_x72_x_x.html#a870ae1600e241ffa4b9c9910bf5bef22',1,'MD_MAX72XX']]],
+  ['spisend_20',['spiSend',['../class_m_d___m_a_x72_x_x.html#a4690478c16105ba9ab7774db620fa69d',1,'MD_MAX72XX']]]
 ];

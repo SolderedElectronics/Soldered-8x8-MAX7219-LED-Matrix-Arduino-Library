@@ -7,6 +7,5 @@ var searchData=
   ['flushbufferall_4',['flushBufferAll',['../class_m_d___m_a_x72_x_x.html#ad38bee425373d8a9752da17f8cb659e3',1,'MD_MAX72XX']]],
   ['font_5fdata_2eh_5',['Font_Data.h',['../_font___data_8h.html',1,'']]],
   ['fontinfo_5ft_6',['fontInfo_t',['../struct_m_d___m_a_x72_x_x_1_1font_info__t.html',1,'MD_MAX72XX']]],
-  ['fonttype_5ft_7',['fontType_t',['../class_m_d___m_a_x72_x_x.html#a5b2e511f00bddbcc1fffa78757d71bf5',1,'MD_MAX72XX']]],
-  ['full_5fpath_5fnames_8',['FULL_PATH_NAMES',['../_doxyfile_8dox.html#ab90b2dc7a83a6cf62cdcd28eb57bfaac',1,'Doxyfile.dox']]]
+  ['fonttype_5ft_7',['fontType_t',['../class_m_d___m_a_x72_x_x.html#a5b2e511f00bddbcc1fffa78757d71bf5',1,'MD_MAX72XX']]]
 ];

@@ -8,6 +8,5 @@ var searchData=
   ['loadfontinfo_5',['loadFontInfo',['../class_m_d___m_a_x72_x_x.html#ab423a54f8af5ec4822d20a433ad95c97',1,'MD_MAX72XX']]],
   ['loadframe_6',['loadFrame',['../class_m_d___robot_eyes.html#a0effaf3d33efae4cfd0029bc862fd164',1,'MD_RobotEyes']]],
   ['loadsequence_7',['loadSequence',['../class_m_d___robot_eyes.html#a7951e22b8c97b1e8723c24bd4e22c97f',1,'MD_RobotEyes']]],
-  ['lookuptable_8',['lookupTable',['../class_m_d___robot_eyes.html#a1b47658c97f80bfae0536ba87fab0dce',1,'MD_RobotEyes']]],
-  ['ltr_9',['LTR',['../_doxyfile_8dox.html#a910a106a6b261d5f655960b0f473e176',1,'Doxyfile.dox']]]
+  ['lookuptable_8',['lookupTable',['../class_m_d___robot_eyes.html#a1b47658c97f80bfae0536ba87fab0dce',1,'MD_RobotEyes']]]
 ];

@@ -26,20 +26,6 @@ var NAVTREE =
 [
   [ "8x8 Led Matrix Library", "index.html", [
     [ "8x8 Led Matrix by Soldered Arduino library", "index.html", "index" ],
-    [ "IMPORTANT", "md_src_libs__m_d__m_a_x72_x_x__i_s_s_u_e__t_e_m_p_l_a_t_e.html", [
-      [ "Subject of the issue", "md_src_libs__m_d__m_a_x72_x_x__i_s_s_u_e__t_e_m_p_l_a_t_e.html#autotoc_md8", null ],
-      [ "Your Environment", "md_src_libs__m_d__m_a_x72_x_x__i_s_s_u_e__t_e_m_p_l_a_t_e.html#autotoc_md9", null ],
-      [ "Steps to Reproduce", "md_src_libs__m_d__m_a_x72_x_x__i_s_s_u_e__t_e_m_p_l_a_t_e.html#autotoc_md10", null ],
-      [ "Expected Behaviour", "md_src_libs__m_d__m_a_x72_x_x__i_s_s_u_e__t_e_m_p_l_a_t_e.html#autotoc_md11", null ],
-      [ "Actual Behaviour", "md_src_libs__m_d__m_a_x72_x_x__i_s_s_u_e__t_e_m_p_l_a_t_e.html#autotoc_md12", null ],
-      [ "Code Demonstrating the Issue", "md_src_libs__m_d__m_a_x72_x_x__i_s_s_u_e__t_e_m_p_l_a_t_e.html#autotoc_md13", null ]
-    ] ],
-    [ "Proposed changes", "md_src_libs__m_d__m_a_x72_x_x__p_u_l_l__r_e_q_u_e_s_t.html", [
-      [ "Types of changes", "md_src_libs__m_d__m_a_x72_x_x__p_u_l_l__r_e_q_u_e_s_t.html#autotoc_md15", null ],
-      [ "Your Environment", "md_src_libs__m_d__m_a_x72_x_x__p_u_l_l__r_e_q_u_e_s_t.html#autotoc_md16", null ],
-      [ "Checklist", "md_src_libs__m_d__m_a_x72_x_x__p_u_l_l__r_e_q_u_e_s_t.html#autotoc_md17", null ],
-      [ "Further comments", "md_src_libs__m_d__m_a_x72_x_x__p_u_l_l__r_e_q_u_e_s_t.html#autotoc_md18", null ]
-    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -57,7 +43,6 @@ var NAVTREE =
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ]
       ] ]
     ] ]

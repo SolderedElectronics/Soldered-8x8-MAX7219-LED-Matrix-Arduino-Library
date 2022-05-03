@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['abbreviate_5fbrief_0',['ABBREVIATE_BRIEF',['../_doxyfile_8dox.html#acc4e4f0817470046f5086cc4eaa2b291',1,'Doxyfile.dox']]],
-  ['allow_5funicode_5fnames_1',['ALLOW_UNICODE_NAMES',['../_doxyfile_8dox.html#ab04509c8e888666afbbd296606032c71',1,'Doxyfile.dox']]],
-  ['arabic_2',['Arabic',['../_doxyfile_8dox.html#ae359b0c516c69bb35e6d504373855726',1,'Doxyfile.dox']]],
-  ['armenian_3',['Armenian',['../_doxyfile_8dox.html#a62e12b36d8680632de18ae4e2310c6a9',1,'Doxyfile.dox']]]
+  ['changed_0',['changed',['../struct_m_d___m_a_x72_x_x_1_1device_info__t.html#a629ae0e915e25dec0d9903fd860dcb3c',1,'MD_MAX72XX::deviceInfo_t']]]
 ];
