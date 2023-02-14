@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "8x8 Led Matrix Library", "index.html", [
-    [ "8x8 Led Matrix Arduino library", "index.html", null ],
+    [ "8x8 Led Matrix Arduino library", "index.html", "index" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
