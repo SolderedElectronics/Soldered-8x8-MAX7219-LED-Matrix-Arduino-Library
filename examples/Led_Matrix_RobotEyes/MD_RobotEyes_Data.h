@@ -4,8 +4,6 @@
 #include "MD_RobotEyes.h"
 
 // Sequences for animations
-// Note: must add this to the lookupTable below as well so that the animation
-// can be found by the animation engine.
 const MD_RobotEyes::animFrame_t MD_RobotEyes::seqBlink[] PROGMEM = {
     {{0, 0}, FRAME_TIME / 2}, {{1, 1}, FRAME_TIME / 2}, {{2, 2}, FRAME_TIME / 2},
     {{3, 3}, FRAME_TIME / 2}, {{4, 4}, FRAME_TIME / 2}, {{5, 5}, FRAME_TIME},

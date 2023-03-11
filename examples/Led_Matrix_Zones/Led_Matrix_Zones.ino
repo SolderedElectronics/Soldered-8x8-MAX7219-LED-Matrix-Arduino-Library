@@ -3,11 +3,35 @@
  *
  * @file        Led_Matrix_Zones.ino
  * @brief       Program to exercise the Led_Matrix library
- * 
+ *
  *              Test the library transformation functions with range subsets
  *
- * @authors     Goran Juric for Soldered.com
+ *              Wiring diagram:
+ *              Dasduino   LED Matrix
+ *                  |          |
+ *                 VCC ------ VCC
+ *                 GND ------ GND
+ *                 D10 ------ LOAD
+ *                 D11 ------ DIN
+ *                 D13 ------ CLK
  * 
+ *              If you connect more matrices, the first matrix is the one on the right side. 
+ * 
+ *                                 DP G  F  E  D  C  B  A  
+ *                               +------------------------+
+ *                               | 7  6  5  4  3  2  1  0 | D7
+ *                       CLK <---|                      1 | D6 <--- CLK
+ *                      LOAD <---|                      2 | D5 <--- LOAD
+ *                      DOUT <---|                      3 | D4 <--- DIN
+ *                       GND ----| O                    4 | D3 ---- GND
+ *                       VCC ----| O  O                 5 | D2 ---- VCC
+ *                               | O  O  O              6 | D1
+ *                               | O  O  O  O           7 | D0
+ *                               +------------------------+
+ *              
+ *
+ * @authors     Goran Juric, Karlo Leksic for Soldered.com
+ *
  *              Modified by Soldered for use on https://solde.red/333062, https://solde.red/333148,
  *              https://solde.red/333149, https://solde.red/333150, https://solde.red/333151 and
  *              https://solde.red/333152
@@ -20,12 +44,9 @@
 #define DELAYTIME 300 // in milliseconds
 
 // Define the number of devices we have in the chain and the hardware interface
-// NOTE: These pin numbers will probably not work with your hardware and may
-// need to be adapted
-
-#define MAX_DEVICES 8 // 2, 4, 6, or 8 work best - see Z array
+#define MAX_DEVICES   2 // 2, 4, 6, or 8 work best - see Z array
 #define HARDWARE_TYPE Led_Matrix::PAROLA_HW
-#define CS_PIN 10 // or SS
+#define CS_PIN        10 // or LOAD
 
 // SPI hardware interface
 Led_Matrix mx = Led_Matrix(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);
@@ -37,12 +58,13 @@ uint32_t lastTime = 0;
 
 typedef struct
 {
-    uint8_t startDev; // start of zone
-    uint8_t endDev;   // end of zone
-    uint8_t ch;       // character to show
+    uint8_t startDev; // Start of zone
+    uint8_t endDev;   // End of zone
+    uint8_t ch;       // Character to show
     Led_Matrix::transformType_t tt;
 } zoneDef_t;
 
+// Define transformations depending on the device number
 zoneDef_t Z[] = {
 #if MAX_DEVICES == 2
     {0, 0, 26, Led_Matrix::TSR}, {1, 1, 27, Led_Matrix::TSL},
@@ -61,6 +83,7 @@ zoneDef_t Z[] = {
 
 #define ARRAY_SIZE(A) (sizeof(A) / sizeof(A[0]))
 
+// Run transformation through each matrix
 void runTransformation(void)
 {
     mx.control(Led_Matrix::UPDATE, Led_Matrix::OFF);
@@ -73,13 +96,15 @@ void runTransformation(void)
 
 void setup()
 {
-    Serial.begin(57600);
+    // Init serial communication
+    Serial.begin(115200);
     Serial.println("[Zone Transform Test]");
 
+    // Init matrix
     mx.begin();
     mx.control(Led_Matrix::WRAPAROUND, Led_Matrix::ON);
 
-    // set up the display characters
+    // Set up the display characters
     for (uint8_t i = 0; i < ARRAY_SIZE(Z); i++)
     {
         mx.clear(Z[i].startDev, Z[i].endDev);
@@ -94,16 +119,10 @@ void setup()
 
 void loop()
 {
+    // Run transformation every 300 ms
     if (millis() - lastTime >= DELAYTIME)
     {
         runTransformation();
         lastTime = millis();
     }
 }
-
-// Dasduino Connect (ESP8266)      Dasduino_Boards:esp8266:connect
-// Dasduino ConnectPlus (ESP32)    Dasduino_Boards:esp32:connectplus
-// Dasduino ConnectPlus LoRa ESP32 Dasduino_Boards:esp32:lora32
-// Dasduino Core (Atmega328P)      Dasduino_Boards:avr:core
-// Dasduino Core LoRa (Atmega328P) Dasduino_Boards:avr:LoRa
-// Dasduino Lite                   Dasduino_Boards:megaavr:lite

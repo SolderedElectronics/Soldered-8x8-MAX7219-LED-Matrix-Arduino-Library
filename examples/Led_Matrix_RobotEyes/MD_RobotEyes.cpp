@@ -40,15 +40,15 @@ void MD_RobotEyes::loadEye(uint8_t module, uint8_t ch)
     }
 }
 
-void MD_RobotEyes::drawEyes(uint8_t L, uint8_t R)
 // Draw the left and right eyes
+void MD_RobotEyes::drawEyes(uint8_t L, uint8_t R)
 {
     Led_Matrix::fontType_t *savedFont = _M->getFont();
 
     _M->control(Led_Matrix::UPDATE, Led_Matrix::OFF);
     _M->setFont(_RobotEyes_Font);
 
-    _M->clear(_sd, _sd + 1); // clear out display modules
+    _M->clear(_sd, _sd + 1); // Clear out display modules
 
     // Load the data and show it
     loadEye(_sd + LEFT_MODULE_OFFSET, L);
@@ -59,8 +59,8 @@ void MD_RobotEyes::drawEyes(uint8_t L, uint8_t R)
 }
 
 #if DEBUG
-void MD_RobotEyes::dumpSequence(const animFrame_t *pBuf, uint8_t numElements)
 // Debugging routine to display an animation table in PROGMEM
+void MD_RobotEyes::dumpSequence(const animFrame_t *pBuf, uint8_t numElements)
 {
     for (uint8_t i = 0; i < numElements; i++)
     {
@@ -75,11 +75,11 @@ void MD_RobotEyes::dumpSequence(const animFrame_t *pBuf, uint8_t numElements)
 }
 #endif
 
-uint8_t MD_RobotEyes::loadSequence(emotion_t e)
 // Load the next emotion from the static data.
 // Set global variables to the required values
+uint8_t MD_RobotEyes::loadSequence(emotion_t e)
 {
-    // run through the lookup table to find the sequence data
+    // Run through the lookup table to find the sequence data
     for (uint8_t i = 0; i < ARRAY_SIZE(lookupTable); i++)
     {
         memcpy_P(&_animEntry, &lookupTable[i], sizeof(animTable_t));
@@ -92,7 +92,7 @@ uint8_t MD_RobotEyes::loadSequence(emotion_t e)
         }
     }
 
-    // set up the current index depending on direction of animation
+    // Set up the current index depending on direction of animation
     if (_animReverse)
         _animIndex = _animEntry.size - 1;
     else
@@ -101,15 +101,15 @@ uint8_t MD_RobotEyes::loadSequence(emotion_t e)
     return (_animEntry.size);
 }
 
-void MD_RobotEyes::loadFrame(animFrame_t *pBuf)
 // Load the idx'th frame from the frame sequence PROGMEM to normal memory pBuf
+void MD_RobotEyes::loadFrame(animFrame_t *pBuf)
 {
     memcpy_P(pBuf, &_animEntry.seq[_animIndex], sizeof(animFrame_t));
 }
 
-void MD_RobotEyes::showText(bool bInit)
 // Print the text string to the LED matrix modules specified.
 // Message area is padded with blank columns after printing.
+void MD_RobotEyes::showText(bool bInit)
 {
     static enum
     {
@@ -135,38 +135,38 @@ void MD_RobotEyes::showText(bool bInit)
     _M->control(Led_Matrix::UPDATE, Led_Matrix::OFF);
 
     // Now scroll the text
-    _M->transform(_sd, _sd + 1, Led_Matrix::TSL); // scroll along by one place
-    _timeLastAnimation = millis();                // starting time for next scroll
+    _M->transform(_sd, _sd + 1, Led_Matrix::TSL); // Scroll along by one place
+    _timeLastAnimation = millis();                // Starting time for next scroll
 
     // Now work out what's next using finite state machine to control what we do
     switch (state)
     {
     case S_LOAD: // Load the next character from the font table
-        // if we reached end of message or empty string, reset the message pointer
+        // If we reached end of message or empty string, reset the message pointer
         if (*_pText == '\0')
         {
             _pText = nullptr;
             break;
         }
 
-        // otherwise load the character
+        // Otherwise load the character
         showLen = _M->getChar(*_pText++, ARRAY_SIZE(cBuf), cBuf);
         curLen = 0;
         state = S_SHOW;
-        // fall through to the next state
+        // Fall through to the next state
 
-    case S_SHOW: // display the next part of the character
+    case S_SHOW: // Display the next part of the character
         _M->setColumn(_sd, 0, cBuf[curLen++]);
         if (curLen == showLen)
         {
             showLen =
-                (*_pText == '\0' ? 2 * EYE_COL_SIZE : 1); // either 1 space or pad to the end of the display if finished
+                (*_pText == '\0' ? 2 * EYE_COL_SIZE : 1); // Either 1 space or pad to the end of the display if finished
             curLen = 0;
             state = S_SPACE;
         }
         break;
 
-    case S_SPACE: // display inter-character spacing (blank columns)
+    case S_SPACE: // Display inter-character spacing (blank columns)
         _M->setColumn(_sd, 0, 0);
         curLen++;
         if (curLen >= showLen)
@@ -180,11 +180,11 @@ void MD_RobotEyes::showText(bool bInit)
     _M->control(Led_Matrix::UPDATE, Led_Matrix::ON);
 }
 
+// Initialize other stuff after libraries have started
 void MD_RobotEyes::begin(Led_Matrix *M, uint8_t moduleStart)
-// initialize other stuff after libraries have started
 {
 #if DEBUG
-    Serial.begin(57600);
+    Serial.begin(115200);
 #endif
     PRINTS("\n[MD_RobotEyes Debug]");
 
@@ -194,36 +194,36 @@ void MD_RobotEyes::begin(Led_Matrix *M, uint8_t moduleStart)
     setAnimation(E_NEUTRAL, false);
 };
 
-bool MD_RobotEyes::runAnimation(void)
 // Animate the eyes
 // Return true if there is no animation happening
+bool MD_RobotEyes::runAnimation(void)
 {
     static animFrame_t thisFrame;
 
     switch (_animState)
     {
-    case S_IDLE:               // no animation running - wait for a new one or blink if time to do so
-        if (_pText != nullptr) // there is some text to show
+    case S_IDLE:               // No animation running - wait for a new one or blink if time to do so
+        if (_pText != nullptr) // There is some text to show
         {
             PRINTS("\nIDLE: showing text");
             showText(true);
             _animState = S_TEXT;
             break;
         }
-        // otherwise fall through and try for an animation
+        // Otherwise fall through and try for an animation
 
-    case S_RESTART:                 // back to start of current animation
-        if (_nextEmotion != E_NONE) // check if we have an animation in the queue
+    case S_RESTART:                 // Back to start of current animation
+        if (_nextEmotion != E_NONE) // Check if we have an animation in the queue
         {
             PRINTS("\nRESRT: showing animation");
             _timeLastAnimation = millis();
 
-            // set up the next animation
+            // Set up the next animation
             loadSequence(_nextEmotion);
             _nextEmotion = E_NONE;
             _animState = S_ANIMATE;
         }
-        else if (_autoBlink) // check if we should be blinking
+        else if (_autoBlink) // Check if we should be blinking
         {
             if (((millis() - _timeLastAnimation) >= _timeBlinkMinimum) && (random(1000) > 700))
             {
@@ -234,7 +234,7 @@ bool MD_RobotEyes::runAnimation(void)
         }
         break;
 
-    case S_ANIMATE: // process the next frame for this sequence
+    case S_ANIMATE: // Process the next frame for this sequence
         PRINT("\nPROCESS: Frame:", _animIndex);
         loadFrame(&thisFrame);
         drawEyes(thisFrame.eyeData[LEFT_EYE_INDEX], thisFrame.eyeData[RIGHT_EYE_INDEX]);
@@ -247,21 +247,21 @@ bool MD_RobotEyes::runAnimation(void)
         _animState = S_PAUSE;
         break;
 
-    case S_PAUSE: // pause this frame for the required time
+    case S_PAUSE: // Pause this frame for the required time
     {
         if ((millis() - _timeStartPause) < thisFrame.timeFrame)
             break;
 
-        // check if this is the end of animation
+        // Check if this is the end of animation
         if ((!_animReverse && _animIndex >= _animEntry.size) || (_animReverse && _animIndex < 0))
         {
             PRINTS("\nPAUSE: Animation end")
-            if (_autoReverse) // set up the same emotion but in reverse
+            if (_autoReverse) // Set up the same emotion but in reverse
             {
                 PRINTS(" & auto reverse");
                 _nextEmotion = _animEntry.e;
-                _animReverse = true;  // set this flag for the restart state
-                _autoReverse = false; // clear the flag for this animation sequence
+                _animReverse = true;  // Set this flag for the restart state
+                _autoReverse = false; // Clear the flag for this animation sequence
                 _animState = S_RESTART;
             }
             else
@@ -272,7 +272,7 @@ bool MD_RobotEyes::runAnimation(void)
     }
     break;
 
-    case S_TEXT: // currently displaying text
+    case S_TEXT: // Currently displaying text
     {
         showText();
         if (_pText == nullptr)
@@ -280,7 +280,7 @@ bool MD_RobotEyes::runAnimation(void)
     }
     break;
 
-    default: // something is wrong - reset the FSM
+    default: // Something is wrong - reset the FSM
         _animState = S_IDLE;
         break;
     }

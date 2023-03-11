@@ -131,8 +131,8 @@ At Soldered, we design and manufacture a wide selection of electronic products t
 
 ### Original source
 
-​
-This library is possible thanks to original [arduino-mcp23017](https://github.com/blemasle/arduino-mcp23017) library. Thank you, blemasle.
+
+This library is possible thanks to original [MAX72xx LED Matrix Display Library](https://github.com/MajicDesigns/MD_MAX72XX) library. Thank you, MajicDesigns.
 
 ### Open-source license
 

@@ -36,22 +36,22 @@ class MD_RobotEyes
     //
     typedef enum
     {
-        E_NONE,    ///< placeholder for no emotions, not user selectable
-        E_NEUTRAL, ///< eyes in neutral position (no animation)
-        E_BLINK,   ///< both eyes blink
-        E_WINK,    ///< one eye blink
-        E_LOOK_L,  ///< both eyes look left
-        E_LOOK_R,  ///< both eyes look right
-        E_LOOK_U,  ///< both eyes look up
-        E_LOOK_D,  ///< both eyes look down
-        E_ANGRY,   ///< eyes look angry (symmetrical)
-        E_SAD,     ///< eyes look sad (symmetrical)
-        E_EVIL,    ///< eyes look evil (symmetrical)
-        E_EVIL2,   ///< eyes look evil (asymmetrical)
-        E_SQUINT,  ///< both eye squint
-        E_DEAD,    ///< eyes indicate dead (different)
-        E_SCAN_UD, ///< both eyes scanning Up/Down
-        E_SCAN_LR, ///< both eyes scanning Left/Right
+        E_NONE,    ///< Placeholder for no emotions, not user selectable
+        E_NEUTRAL, ///< Eyes in neutral position (no animation)
+        E_BLINK,   ///< Both eyes blink
+        E_WINK,    ///< One eye blink
+        E_LOOK_L,  ///< Both eyes look left
+        E_LOOK_R,  ///< Both eyes look right
+        E_LOOK_U,  ///< Both eyes look up
+        E_LOOK_D,  ///< Both eyes look down
+        E_ANGRY,   ///< Eyes look angry (symmetrical)
+        E_SAD,     ///< Eyes look sad (symmetrical)
+        E_EVIL,    ///< Eyes look evil (symmetrical)
+        E_EVIL2,   ///< Eyes look evil (asymmetrical)
+        E_SQUINT,  ///< Both eye squint
+        E_DEAD,    ///< Eyes indicate dead (different)
+        E_SCAN_UD, ///< Both eyes scanning Up/Down
+        E_SCAN_LR, ///< Both eyes scanning Left/Right
     } emotion_t;
 
     /**
@@ -79,8 +79,8 @@ class MD_RobotEyes
      * to the Led_Matrix object passed to the parameter. Also, as the eyes could be in the
      * middle of a string of LED modules, the first 'eye' module can be specified.
      *
-     * /param M            pointer to the Led_Matrix library object.
-     * /param moduleStart  the first 'eye' LED module. Defaults to 0 if not specified.
+     * /param M            Pointer to the Led_Matrix library object.
+     * /param moduleStart  The first 'eye' LED module. Defaults to 0 if not specified.
      */
     void begin(Led_Matrix *M, uint8_t moduleStart = 0);
 
@@ -96,9 +96,9 @@ class MD_RobotEyes
      * reverse, which holds the animation at the end point, and then later run the animation
      * in reverse from the last position to return to the idle state.
      *
-     * \param e  the type of emotion to be displayed, one of the emotion_T enumerated values.
-     * \param r  if true, run auto reverse.
-     * \param b  if true, start the animation from the end of the sequence.
+     * \param e  The type of emotion to be displayed, one of the emotion_T enumerated values.
+     * \param r  If true, run auto reverse.
+     * \param b  If true, start the animation from the end of the sequence.
      */
     inline void setAnimation(emotion_t e, bool r, bool b = false)
     {
@@ -113,7 +113,7 @@ class MD_RobotEyes
      * When no animation is running and AutoBlink is set, the eyes will occasionally blink.
      * Set the minimum time period between blinks. A blink will occur a random time after this.
      *
-     * \param t  the minimum time between blinking actions in milliseconds.
+     * \param t  The minimum time between blinking actions in milliseconds.
      */
     inline void setBlinkTime(uint16_t t)
     {
@@ -125,7 +125,7 @@ class MD_RobotEyes
      *
      * When no animation is running and AutoBlink is set, the eyes will occasionally blink.
      *
-     * \param b  set auto blink if true, reset auto blink if false.
+     * \param b  Set auto blink if true, reset auto blink if false.
      */
     inline void setAutoBlink(bool b)
     {
@@ -138,7 +138,7 @@ class MD_RobotEyes
     * At the end of the current animation, the text will be scrolled across the 'eyes'
     * and then the eyes are returned to the neutral expression
     *
-    * \param p  a pointer to a char array containing a nul terminated string.
+    * \param p  A pointer to a char array containing a nul terminated string.
                 The string must remain in scope while the message is being displayed.
     */
     inline bool setText(const char *pText)
@@ -158,7 +158,7 @@ class MD_RobotEyes
      * The calling program should monitor the return value for 'true' in order to know when
      * the animation has concluded. A 'true' return value means that the animation is complete.
      *
-     * \return bool  true if the animation has completed, false otherwise.
+     * \return bool  True if the animation has completed, false otherwise.
      */
     bool runAnimation(void);
 
@@ -177,7 +177,7 @@ class MD_RobotEyes
     struct animFrame_t
     {
         uint8_t eyeData[2]; // [LEFT_MODULE_OFFSET] and [RIGHT_MODULE_OFFSET] eye character from font data
-        uint16_t timeFrame; // time for this frame in milliseconds
+        uint16_t timeFrame; // Time for this frame in milliseconds
     };
 
     // Define an entry in the animation sequence lookup table
@@ -190,7 +190,7 @@ class MD_RobotEyes
 
     // Display parameters
     Led_Matrix *_M;
-    uint16_t _sd; // start module for the display
+    uint16_t _sd; // Start module for the display
 
     // Animation parameters
     uint32_t _timeStartPause;
@@ -201,21 +201,21 @@ class MD_RobotEyes
     uint16_t _scrollDelay;
 
     // Animation control data
-    animTable_t _animEntry; // record with animation sequence parameters
-    int8_t _animIndex;      // current index in the animation sequence
-    bool _animReverse;      // true = reverse sequence, false = normal sequence
-    bool _autoReverse;      // true = always play the reverse, false = selected direction only
-    emotion_t _nextEmotion; // the next emotion to display
-    const char *_pText;     // pointer to text data in user code. Not nullptr means there is text to print
+    animTable_t _animEntry; // Record with animation sequence parameters
+    int8_t _animIndex;      // Current index in the animation sequence
+    bool _animReverse;      // True = reverse sequence, false = normal sequence
+    bool _autoReverse;      // True = always play the reverse, false = selected direction only
+    emotion_t _nextEmotion; // The next emotion to display
+    const char *_pText;     // Pointer to text data in user code. Not nullptr means there is text to print
 
     // Methods
     void loadEye(uint8_t module, uint8_t ch);
     void drawEyes(uint8_t L, uint8_t R);
-    uint8_t loadSequence(emotion_t e); // return the size of the sequence
+    uint8_t loadSequence(emotion_t e); // Return the size of the sequence
     void loadFrame(animFrame_t *pBuf);
     void showText(bool bInit = false);
 
-    void dumpSequence(const animFrame_t *pBuf, uint8_t numElements); // debugging routine only
+    void dumpSequence(const animFrame_t *pBuf, uint8_t numElements); // Debugging routine only
 
     // Static data tables
     static const animFrame_t seqBlink[], seqWink[];
