@@ -76,6 +76,7 @@ var class_m_d___m_a_x72_x_x =
     [ "getR", "class_m_d___m_a_x72_x_x.html#a505be40970abddf2e0ce56e732e18a04", null ],
     [ "getRow", "class_m_d___m_a_x72_x_x.html#a59eefabcaf003dc37dd17f41c5d6d211", null ],
     [ "loadFontInfo", "class_m_d___m_a_x72_x_x.html#ab423a54f8af5ec4822d20a433ad95c97", null ],
+    [ "printBinary", "class_m_d___m_a_x72_x_x.html#a15403ffa2627988c60bb98a915b3dec8", null ],
     [ "setBuffer", "class_m_d___m_a_x72_x_x.html#a1aaabf8c4df556c3e9a04a1319234261", null ],
     [ "setC", "class_m_d___m_a_x72_x_x.html#a6228de3ae3da148caa7af7612c803735", null ],
     [ "setChar", "class_m_d___m_a_x72_x_x.html#ae0bb8f197ef89389374f83717f0a1c3d", null ],
