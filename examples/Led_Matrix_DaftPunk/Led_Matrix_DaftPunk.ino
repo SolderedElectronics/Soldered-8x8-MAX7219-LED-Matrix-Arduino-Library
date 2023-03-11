@@ -2,17 +2,43 @@
  **************************************************
  *
  * @file        Led_Matrix_DaftPunk.ino
+ * 
  * @brief       If RUN_DEMO is set to zero the display cycles changes triggered by a switch on
  *              the MODE_SWITCH pin. This can be substituted for any trigger as implemented
  *              by the helmet wearer.
  *              If RUN_DEMO is set to 1 the sketch will cycle each element of the display every
  *              DEMO_DELAY seconds, without the need for a switch.
- * 
+ *
  *              Uses the MD_UISwitch library found at https://github.com/MajicDesigns/MD_UISwitch
  *
- *
- * @authors     Goran Juric for Soldered.com
+ *              Wiring diagram:
+ *              Dasduino   LED Matrix
+ *                  |          |
+ *                 VCC ------ VCC
+ *                 GND ------ GND
+ *                 D10 ------ LOAD
+ *                 D11 ------ DIN
+ *                 D13 ------ CLK
+ *              Additionally, connect a switch to a pin on the Dasduino (default is digital pin 9)
+ *              if you want to use it.
  * 
+ *              If you connect more matrices, the first matrix is the one on the right side. 
+ * 
+ *                                 DP G  F  E  D  C  B  A  
+ *                               +------------------------+
+ *                               | 7  6  5  4  3  2  1  0 | D7
+ *                       CLK <---|                      1 | D6 <--- CLK
+ *                      LOAD <---|                      2 | D5 <--- LOAD
+ *                      DOUT <---|                      3 | D4 <--- DIN
+ *                       GND ----| O                    4 | D3 ---- GND
+ *                       VCC ----| O  O                 5 | D2 ---- VCC
+ *                               | O  O  O              6 | D1
+ *                               | O  O  O  O           7 | D0
+ *                               +------------------------+
+ *              
+ *
+ * @authors     Goran Juric, Karlo Leksic for Soldered.com
+ *
  *              Modified by Soldered for use on https://solde.red/333062, https://solde.red/333148,
  *              https://solde.red/333149, https://solde.red/333150, https://solde.red/333151 and
  *              https://solde.red/333152
@@ -24,12 +50,12 @@
 #include <SPI.h>
 
 #if RUN_DEMO
-#define DEMO_DELAY 15 // time to show each demo element in seconds
+#define DEMO_DELAY 15 // Time to show each demo element in seconds
 #else
 #include <MD_UISwitch.h>
 #endif
 
-#define DEBUG 0 // Enable or disable (default) debugging output
+#define DEBUG 1 // Enable or disable (default) debugging output at 115200 baud rate
 
 #if DEBUG
 #define PRINT(s, v)                                                                                                    \
@@ -64,17 +90,15 @@
 #define PRINTS(s)    // Print a string
 #endif
 
-// --------------------
 // Led_Matrix hardware definitions and object
 // Define the number of devices we have in the chain and the hardware interface
-// NOTE: These pin numbers will probably not work with your hardware and may
-// need to be adapted
-//
 #define HARDWARE_TYPE Led_Matrix::PAROLA_HW
-#define MAX_DEVICES   11
+#define MAX_DEVICES   3
+
+// Define matrix pins
 #define CLK_PIN       13 // or SCK
 #define DATA_PIN      11 // or MOSI
-#define CS_PIN        10 // or SS
+#define CS_PIN        10 // or LOAD
 
 Led_Matrix mx = Led_Matrix(HARDWARE_TYPE, CS_PIN, MAX_DEVICES); // SPI hardware interface
 
@@ -108,15 +132,15 @@ MD_UISwitch_Digital ks = MD_UISwitch_Digital(MODE_SWITCH, LOW);
 #define PACMAN_DELAY    (4 * UNIT_DELAY)
 #define SINE_DELAY      (2 * UNIT_DELAY)
 
-#define CHAR_SPACING 1  // pixels between characters
-#define BUF_SIZE     75 // character buffer size
+#define CHAR_SPACING 1  // Pixels between characters
+#define BUF_SIZE     75 // Character buffer size
 
 // ========== General Variables ===========
 //
 uint32_t prevTimeAnim = 0; // Used for remembering the millis() value in animations
 #if RUN_DEMO
-uint32_t prevTimeDemo = 0;     //  Used for remembering the millis() time in demo loop
-uint8_t timeDemo = DEMO_DELAY; // number of seconds left in this demo loop
+uint32_t prevTimeDemo = 0;     // Used for remembering the millis() time in demo loop
+uint8_t timeDemo = DEMO_DELAY; // Number of seconds left in this demo loop
 #endif
 
 // ========== Text routines ===========
@@ -127,8 +151,8 @@ const char *msgTab[] = {
     "DAFT PUNK", "GET LUCKY", "ONE MORE TIME", "HARDER  BETTER  FASTER  STRONGER", "HUMAN AND ROBOT", "TECHNOLOGIC",
 };
 
-bool scrollText(bool bInit, const char *pmsg)
 // Callback function for data that is required for scrolling into the display
+bool scrollText(bool bInit, const char *pmsg)
 {
     static char curMessage[BUF_SIZE];
     static char *p = curMessage;
@@ -137,7 +161,7 @@ bool scrollText(bool bInit, const char *pmsg)
     static uint8_t cBuf[8];
     uint8_t colData;
 
-    // are we initializing?
+    // Are we initializing?
     if (bInit)
     {
         PRINTS("\n--- Initializing ScrollText");
@@ -152,11 +176,11 @@ bool scrollText(bool bInit, const char *pmsg)
     if (millis() - prevTimeAnim < SCROLL_DELAY)
         return (bInit);
 
-    // scroll the display
-    mx.transform(Led_Matrix::TSL); // scroll along
-    prevTimeAnim = millis();       // starting point for next time
+    // Scroll the display
+    mx.transform(Led_Matrix::TSL); // Scroll along
+    prevTimeAnim = millis();       // Starting point for next time
 
-    // now run the finite state machine to control what we do
+    // Now run the finite state machine to control what we do
     PRINT("\nScroll FSM S:", state);
     switch (state)
     {
@@ -166,9 +190,9 @@ bool scrollText(bool bInit, const char *pmsg)
         curLen = 0;
         state = 1;
 
-        // !! deliberately fall through to next state to start displaying
+        // !! Deliberately fall through to next state to start displaying
 
-    case 1: // display the next part of the character
+    case 1: // Display the next part of the character
         colData = cBuf[curLen++];
         mx.setColumn(0, colData);
         if (curLen == showLen)
@@ -179,7 +203,7 @@ bool scrollText(bool bInit, const char *pmsg)
         }
         break;
 
-    case 2: // display inter-character spacing (blank column) or scroll off the display
+    case 2: // Display inter-character spacing (blank column) or scroll off the display
         mx.setColumn(0, 0);
         if (++curLen == showLen)
         {
@@ -196,10 +220,11 @@ bool scrollText(bool bInit, const char *pmsg)
 }
 
 // ========== Graphic routines ===========
-//
+
+// Draw a midline
 bool graphicMidline1(bool bInit)
 {
-    // are we initializing?
+    // Are we initializing?
     if (bInit)
     {
         PRINTS("\n--- Midline1 init");
@@ -208,6 +233,7 @@ bool graphicMidline1(bool bInit)
     }
     else
     {
+        // Set midline on each matrix
         for (uint8_t j = 0; j < MAX_DEVICES; j++)
         {
             mx.setRow(j, 3, 0xff);
@@ -218,12 +244,13 @@ bool graphicMidline1(bool bInit)
     return (bInit);
 }
 
+// Draw animate midline
 bool graphicMidline2(bool bInit)
 {
-    static uint8_t idx = 0;   // position
-    static int8_t idOffs = 1; // increment direction
+    static uint8_t idx = 0;   // Position
+    static int8_t idOffs = 1; // Increment direction
 
-    // are we initializing?
+    // Are we initializing?
     if (bInit)
     {
         PRINTS("\n--- Midline2 init");
@@ -236,26 +263,28 @@ bool graphicMidline2(bool bInit)
     // Is it time to animate?
     if (millis() - prevTimeAnim < MIDLINE_DELAY)
         return (bInit);
-    prevTimeAnim = millis(); // starting point for next time
+    prevTimeAnim = millis(); // Starting point for next time
 
+    // Debug messages if it's enabled
     PRINT("\nML2 R:", idx);
     PRINT(" D:", idOffs);
 
-    // now run the animation
+    // Now run the animation
     mx.control(Led_Matrix::UPDATE, Led_Matrix::OFF);
 
-    // turn off the old lines
+    // Turn off the old lines
     for (uint8_t j = 0; j < MAX_DEVICES; j++)
     {
         mx.setRow(j, idx, 0x00);
         mx.setRow(j, ROW_SIZE - 1 - idx, 0x00);
     }
 
+    // Change offset direction when lines went to one of the edges
     idx += idOffs;
     if ((idx == 0) || (idx == ROW_SIZE - 1))
         idOffs = -idOffs;
 
-    // turn on the new lines
+    // Turn on the new lines
     for (uint8_t j = 0; j < MAX_DEVICES; j++)
     {
         mx.setRow(j, idx, 0xff);
@@ -267,13 +296,14 @@ bool graphicMidline2(bool bInit)
     return (bInit);
 }
 
+// Animate a scanner effect
 bool graphicScanner(bool bInit)
 {
-    const uint8_t width = 3;  // scanning bar width
-    static uint8_t idx = 0;   // position
-    static int8_t idOffs = 1; // increment direction
+    const uint8_t width = 3;  // Scanning bar width
+    static uint8_t idx = 0;   // Position
+    static int8_t idOffs = 1; // Increment direction
 
-    // are we initializing?
+    // Are we initializing?
     if (bInit)
     {
         PRINTS("\n--- Scanner init");
@@ -286,23 +316,24 @@ bool graphicScanner(bool bInit)
     // Is it time to animate?
     if (millis() - prevTimeAnim < SCANNER_DELAY)
         return (bInit);
-    prevTimeAnim = millis(); // starting point for next time
+    prevTimeAnim = millis(); // Starting point for next time
 
     PRINT("\nS R:", idx);
     PRINT(" D:", idOffs);
 
-    // now run the animation
+    // Now run the animation
     mx.control(Led_Matrix::UPDATE, Led_Matrix::OFF);
 
-    // turn off the old lines
+    // Turn off the old lines
     for (uint8_t i = 0; i < width; i++)
         mx.setColumn(idx + i, 0);
 
+    // Change offset direction when lines went to one of the edges
     idx += idOffs;
     if ((idx == 0) || (idx + width == mx.getColumnCount()))
         idOffs = -idOffs;
 
-    // turn on the new lines
+    // Turn on the new lines
     for (uint8_t i = 0; i < width; i++)
         mx.setColumn(idx + i, 0xff);
 
@@ -311,9 +342,10 @@ bool graphicScanner(bool bInit)
     return (bInit);
 }
 
+// Random turn on and off LEDs
 bool graphicRandom(bool bInit)
 {
-    // are we initializing?
+    // Are we initializing?
     if (bInit)
     {
         PRINTS("\n--- Random init");
@@ -324,9 +356,9 @@ bool graphicRandom(bool bInit)
     // Is it time to animate?
     if (millis() - prevTimeAnim < RANDOM_DELAY)
         return (bInit);
-    prevTimeAnim = millis(); // starting point for next time
+    prevTimeAnim = millis(); // Starting point for next time
 
-    // now run the animation
+    // Now run the animation
     mx.control(Led_Matrix::UPDATE, Led_Matrix::OFF);
     for (uint8_t i = 0; i < mx.getColumnCount(); i++)
         mx.setColumn(i, (uint8_t)random(255));
@@ -335,13 +367,14 @@ bool graphicRandom(bool bInit)
     return (bInit);
 }
 
+// Scroll the strips
 bool graphicScroller(bool bInit)
 {
-    const uint8_t width = 3; // width of the scroll bar
+    const uint8_t width = 3; // Width of the scroll bar
     const uint8_t offset = mx.getColumnCount() / 3;
-    static uint8_t idx = 0; // counter
+    static uint8_t idx = 0; // Counter
 
-    // are we initializing?
+    // Are we initializing?
     if (bInit)
     {
         PRINTS("\n--- Scroller init");
@@ -353,11 +386,11 @@ bool graphicScroller(bool bInit)
     // Is it time to animate?
     if (millis() - prevTimeAnim < SCANNER_DELAY)
         return (bInit);
-    prevTimeAnim = millis(); // starting point for next time
+    prevTimeAnim = millis(); // Starting point for next time
 
     PRINT("\nS I:", idx);
 
-    // now run the animation
+    // Now run the animation
     mx.control(Led_Matrix::UPDATE, Led_Matrix::OFF);
 
     mx.transform(Led_Matrix::TSL);
@@ -371,9 +404,10 @@ bool graphicScroller(bool bInit)
     return (bInit);
 }
 
+// Random spectrum on each matrix
 bool graphicSpectrum1(bool bInit)
 {
-    // are we initializing?
+    // Are we initializing?
     if (bInit)
     {
         PRINTS("\n--- Spectrum1 init");
@@ -384,15 +418,16 @@ bool graphicSpectrum1(bool bInit)
     // Is it time to animate?
     if (millis() - prevTimeAnim < SPECTRUM_DELAY)
         return (bInit);
-    prevTimeAnim = millis(); // starting point for next time
+    prevTimeAnim = millis(); // Starting point for next time
 
-    // now run the animation
+    // Now run the animation
     mx.control(Led_Matrix::UPDATE, Led_Matrix::OFF);
     for (uint8_t i = 0; i < MAX_DEVICES; i++)
     {
-        uint8_t r = random(ROW_SIZE);
+        uint8_t r = random(ROW_SIZE); // Get random value
         uint8_t cd = 0;
 
+        // Fill the columns until the random number
         for (uint8_t j = 0; j < r; j++)
             cd |= 1 << j;
         for (uint8_t j = 1; j < COL_SIZE - 1; j++)
@@ -403,9 +438,10 @@ bool graphicSpectrum1(bool bInit)
     return (bInit);
 }
 
+// Random spectrum on each matrix column
 bool graphicSpectrum2(bool bInit)
 {
-    // are we initializing?
+    // Are we initializing?
     if (bInit)
     {
         PRINTS("\n--- Spectrum2init");
@@ -416,15 +452,16 @@ bool graphicSpectrum2(bool bInit)
     // Is it time to animate?
     if (millis() - prevTimeAnim < SPECTRUM_DELAY)
         return (bInit);
-    prevTimeAnim = millis(); // starting point for next time
+    prevTimeAnim = millis(); // Starting point for next time
 
-    // now run the animation
+    // Now run the animation
     mx.control(Led_Matrix::UPDATE, Led_Matrix::OFF);
     for (uint8_t i = 0; i < mx.getColumnCount(); i++)
     {
-        uint8_t r = random(ROW_SIZE);
+        uint8_t r = random(ROW_SIZE); // Get random value
         uint8_t cd = 0;
 
+        // Fill the columns until the random number
         for (uint8_t j = 0; j < r; j++)
             cd |= 1 << j;
 
@@ -435,6 +472,7 @@ bool graphicSpectrum2(bool bInit)
     return (bInit);
 }
 
+// Simulation of heartbeat
 bool graphicHeartbeat(bool bInit)
 {
 #define BASELINE_ROW 4
@@ -443,7 +481,7 @@ bool graphicHeartbeat(bool bInit)
     static uint8_t r, c;
     static bool bPoint;
 
-    // are we initializing?
+    // Are we initializing?
     if (bInit)
     {
         PRINTS("\n--- Heartbeat init");
@@ -458,9 +496,9 @@ bool graphicHeartbeat(bool bInit)
     // Is it time to animate?
     if (millis() - prevTimeAnim < HEARTBEAT_DELAY)
         return (bInit);
-    prevTimeAnim = millis(); // starting point for next time
+    prevTimeAnim = millis(); // Starting point for next time
 
-    // now run the animation
+    // Now run the animation
     PRINT("\nHB S:", state);
     PRINT(" R: ", r);
     PRINT(" C: ", c);
@@ -469,13 +507,13 @@ bool graphicHeartbeat(bool bInit)
 
     switch (state)
     {
-    case 0: // straight line from the right side
+    case 0: // Straight line from the right side
         if (c == mx.getColumnCount() / 2 + COL_SIZE)
             state = 1;
         c--;
         break;
 
-    case 1: // first stroke
+    case 1: // First stroke
         if (r != 0)
         {
             r--;
@@ -485,7 +523,7 @@ bool graphicHeartbeat(bool bInit)
             state = 2;
         break;
 
-    case 2: // down stroke
+    case 2: // Down stroke
         if (r != ROW_SIZE - 1)
         {
             r++;
@@ -495,7 +533,7 @@ bool graphicHeartbeat(bool bInit)
             state = 3;
         break;
 
-    case 3: // second up stroke
+    case 3: // Second up stroke
         if (r != BASELINE_ROW)
         {
             r--;
@@ -505,7 +543,7 @@ bool graphicHeartbeat(bool bInit)
             state = 4;
         break;
 
-    case 4: // straight line to the left
+    case 4: // Straight line to the left
         if (c == 0)
         {
             c = mx.getColumnCount() - 1;
@@ -523,12 +561,13 @@ bool graphicHeartbeat(bool bInit)
     return (bInit);
 }
 
+// Increase and decrease matrix brightness
 bool graphicFade(bool bInit)
 {
     static uint8_t intensity = 0;
     static int8_t iOffs = 1;
 
-    // are we initializing?
+    // Are we initializing?
     if (bInit)
     {
         PRINTS("\n--- Fade init");
@@ -547,9 +586,9 @@ bool graphicFade(bool bInit)
     // Is it time to animate?
     if (millis() - prevTimeAnim < FADE_DELAY)
         return (bInit);
-    prevTimeAnim = millis(); // starting point for next time
+    prevTimeAnim = millis(); // Starting point for next time
 
-    // now run the animation
+    // Now run the animation
     intensity += iOffs;
     PRINT("\nF I:", intensity);
     PRINT(" D:", iOffs);
@@ -560,6 +599,7 @@ bool graphicFade(bool bInit)
     return (bInit);
 }
 
+// Draw empty and filled hearts
 bool graphicHearts(bool bInit)
 {
 #define NUM_HEARTS ((MAX_DEVICES / 2) + 1)
@@ -570,7 +610,7 @@ bool graphicHearts(bool bInit)
 
     static bool bEmpty;
 
-    // are we initializing?
+    // Are we initializing?
     if (bInit)
     {
         PRINTS("\n--- Hearts init");
@@ -582,11 +622,12 @@ bool graphicHearts(bool bInit)
     // Is it time to animate?
     if (millis() - prevTimeAnim < HEARTS_DELAY)
         return (bInit);
-    prevTimeAnim = millis(); // starting point for next time
+    prevTimeAnim = millis(); // Starting point for next time
 
-    // now run the animation
+    // Now run the animation
     PRINT("\nH E:", bEmpty);
 
+    // Draw filled or empty hearts
     mx.control(Led_Matrix::UPDATE, Led_Matrix::OFF);
     for (uint8_t h = 1; h <= NUM_HEARTS; h++)
     {
@@ -602,6 +643,7 @@ bool graphicHearts(bool bInit)
     return (bInit);
 }
 
+// Draw blinking eyes
 bool graphicEyes(bool bInit)
 {
 #define NUM_EYES 2
@@ -612,7 +654,7 @@ bool graphicEyes(bool bInit)
 
     bool bOpen;
 
-    // are we initializing?
+    // Are we initializing?
     if (bInit)
     {
         PRINTS("\n--- Eyes init");
@@ -623,12 +665,13 @@ bool graphicEyes(bool bInit)
     // Is it time to animate?
     if (millis() - prevTimeAnim < EYES_DELAY)
         return (bInit);
-    prevTimeAnim = millis(); // starting point for next time
+    prevTimeAnim = millis(); // Starting point for next time
 
-    // now run the animation
+    // Now run the animation
     bOpen = (random(1000) > 100);
     PRINT("\nH E:", bOpen);
 
+    // Draw open or closed eyes
     mx.control(Led_Matrix::UPDATE, Led_Matrix::OFF);
     for (uint8_t e = 1; e <= NUM_EYES; e++)
     {
@@ -643,12 +686,13 @@ bool graphicEyes(bool bInit)
     return (bInit);
 }
 
+// Animation of bouncing ball
 bool graphicBounceBall(bool bInit)
 {
-    static uint8_t idx = 0;   // position
-    static int8_t idOffs = 1; // increment direction
+    static uint8_t idx = 0;   // Position
+    static int8_t idOffs = 1; // Increment direction
 
-    // are we initializing?
+    // Are we initializing?
     if (bInit)
     {
         PRINTS("\n--- BounceBall init");
@@ -659,23 +703,24 @@ bool graphicBounceBall(bool bInit)
     // Is it time to animate?
     if (millis() - prevTimeAnim < SCANNER_DELAY)
         return (bInit);
-    prevTimeAnim = millis(); // starting point for next time
+    prevTimeAnim = millis(); // Starting point for next time
 
     PRINT("\nBB R:", idx);
     PRINT(" D:", idOffs);
 
-    // now run the animation
+    // Now run the animation
     mx.control(Led_Matrix::UPDATE, Led_Matrix::OFF);
 
-    // turn off the old ball
+    // Turn off the old ball
     mx.setColumn(idx, 0);
     mx.setColumn(idx + 1, 0);
 
+    // Change the direction when the ball goes to the edge
     idx += idOffs;
     if ((idx == 0) || (idx == mx.getColumnCount() - 2))
         idOffs = -idOffs;
 
-    // turn on the new lines
+    // Turn on the new lines
     mx.setColumn(idx, 0x18);
     mx.setColumn(idx + 1, 0x18);
 
@@ -684,14 +729,15 @@ bool graphicBounceBall(bool bInit)
     return (bInit);
 }
 
+// Scroll the arrows over all matrices
 bool graphicArrowScroll(bool bInit)
 {
-    const uint8_t arrow[] = {0x3c, 0x66, 0xc3, 0x99};
+    const uint8_t arrow[] = {0x3c, 0x66, 0xc3, 0x99}; // Arrow bitmap
     const uint8_t dataSize = (sizeof(arrow) / sizeof(arrow[0]));
 
     static uint8_t idx = 0;
 
-    // are we initializing?
+    // Are we initializing?
     if (bInit)
     {
         PRINTS("\n--- ArrowScroll init");
@@ -702,11 +748,11 @@ bool graphicArrowScroll(bool bInit)
     // Is it time to animate?
     if (millis() - prevTimeAnim < ARROWS_DELAY)
         return (bInit);
-    prevTimeAnim = millis(); // starting point for next time
+    prevTimeAnim = millis(); // Starting point for next time
 
-    // now run the animation
     PRINT("\nAR I:", idx);
 
+    // Now run the animation
     mx.control(Led_Matrix::UPDATE, Led_Matrix::OFF);
     mx.transform(Led_Matrix::TSL);
     mx.setColumn(0, arrow[idx++]);
@@ -717,12 +763,13 @@ bool graphicArrowScroll(bool bInit)
     return (bInit);
 }
 
+// Animation of wiping over all matrices
 bool graphicWiper(bool bInit)
 {
-    static uint8_t idx = 0;   // position
-    static int8_t idOffs = 1; // increment direction
+    static uint8_t idx = 0;   // Position
+    static int8_t idOffs = 1; // Increment direction
 
-    // are we initializing?
+    // Are we initializing?
     if (bInit)
     {
         PRINTS("\n--- Wiper init");
@@ -733,12 +780,12 @@ bool graphicWiper(bool bInit)
     // Is it time to animate?
     if (millis() - prevTimeAnim < WIPER_DELAY)
         return (bInit);
-    prevTimeAnim = millis(); // starting point for next time
+    prevTimeAnim = millis(); // Starting point for next time
 
     PRINT("\nW R:", idx);
     PRINT(" D:", idOffs);
 
-    // now run the animation
+    // Now run the animation
     mx.setColumn(idx, idOffs == 1 ? 0xff : 0);
     idx += idOffs;
     if ((idx == 0) || (idx == mx.getColumnCount()))
@@ -747,8 +794,10 @@ bool graphicWiper(bool bInit)
     return (bInit);
 }
 
+// Animation of the invader
 bool graphicInvader(bool bInit)
 {
+    // Bitmap of invader
     const uint8_t invader1[] = {0x0e, 0x98, 0x7d, 0x36, 0x3c};
     const uint8_t invader2[] = {0x70, 0x18, 0x7d, 0xb6, 0x3c};
     const uint8_t dataSize = (sizeof(invader1) / sizeof(invader1[0]));
@@ -756,7 +805,7 @@ bool graphicInvader(bool bInit)
     static int8_t idx;
     static bool iType;
 
-    // are we initializing?
+    // Are we initializing?
     if (bInit)
     {
         PRINTS("\n--- Invader init");
@@ -769,11 +818,12 @@ bool graphicInvader(bool bInit)
     // Is it time to animate?
     if (millis() - prevTimeAnim < INVADER_DELAY)
         return (bInit);
-    prevTimeAnim = millis(); // starting point for next time
+    prevTimeAnim = millis(); // Starting point for next time
 
-    // now run the animation
+    // Now run the animation
     PRINT("\nINV I:", idx);
 
+    // Draw the invader
     mx.control(Led_Matrix::UPDATE, Led_Matrix::OFF);
     mx.clear();
     for (uint8_t i = 0; i < dataSize; i++)
@@ -790,11 +840,12 @@ bool graphicInvader(bool bInit)
     return (bInit);
 }
 
+// Draw animation of paceman
 bool graphicPacman(bool bInit)
 {
-#define MAX_FRAMES    4 // number of animation frames
+#define MAX_FRAMES    4 // Number of animation frames
 #define PM_DATA_WIDTH 18
-    const uint8_t pacman[MAX_FRAMES][PM_DATA_WIDTH] = // ghost pursued by a pacman
+    const uint8_t pacman[MAX_FRAMES][PM_DATA_WIDTH] = // Ghost pursued by a pacman
         {
             {0x3c, 0x7e, 0x7e, 0xff, 0xe7, 0xc3, 0x81, 0x00, 0x00, 0x00, 0x00, 0xfe, 0x7b, 0xf3, 0x7f, 0xfb, 0x73,
              0xfe},
@@ -806,11 +857,11 @@ bool graphicPacman(bool bInit)
              0xfe},
         };
 
-    static int16_t idx;        // display index (column)
-    static uint8_t frame;      // current animation frame
-    static uint8_t deltaFrame; // the animation frame offset for the next frame
+    static int16_t idx;        // Display index (column)
+    static uint8_t frame;      // Current animation frame
+    static uint8_t deltaFrame; // The animation frame offset for the next frame
 
-    // are we initializing?
+    // Are we initializing?
     if (bInit)
     {
         PRINTS("\n--- Pacman init");
@@ -824,27 +875,27 @@ bool graphicPacman(bool bInit)
     // Is it time to animate?
     if (millis() - prevTimeAnim < PACMAN_DELAY)
         return (bInit);
-    prevTimeAnim = millis(); // starting point for next time
+    prevTimeAnim = millis(); // Starting point for next time
 
     PRINT("\nPAC I:", idx);
 
     mx.control(Led_Matrix::UPDATE, Led_Matrix::OFF);
     mx.clear();
 
-    // clear old graphic
+    // Clear old graphic
     for (uint8_t i = 0; i < PM_DATA_WIDTH; i++)
         mx.setColumn(idx - PM_DATA_WIDTH + i, 0);
-    // move reference column and draw new graphic
+    // Move reference column and draw new graphic
     idx++;
     for (uint8_t i = 0; i < PM_DATA_WIDTH; i++)
         mx.setColumn(idx - PM_DATA_WIDTH + i, pacman[frame][i]);
 
-    // advance the animation frame
+    // Advance the animation frame
     frame += deltaFrame;
     if (frame == 0 || frame == MAX_FRAMES - 1)
         deltaFrame = -deltaFrame;
 
-    // check if we are completed and set initialize for next time around
+    // Check if we are completed and set initialize for next time around
     if (idx == mx.getColumnCount() + PM_DATA_WIDTH)
         bInit = true;
 
@@ -853,13 +904,16 @@ bool graphicPacman(bool bInit)
     return (bInit);
 }
 
+// Draw, move, and rotate arrows 
 bool graphicArrowRotate(bool bInit)
 {
-    static uint16_t idx; // transformation index
+    static uint16_t idx; // Transformation index
 
+    // Arrow bitmap
     uint8_t arrow[COL_SIZE] = {0b00000000, 0b00011000, 0b00111100, 0b01111110,
                                0b00011000, 0b00011000, 0b00011000, 0b00000000};
 
+    // Shift directions
     Led_Matrix::transformType_t t[] = {
         Led_Matrix::TRC, Led_Matrix::TRC, Led_Matrix::TSR, Led_Matrix::TSR, Led_Matrix::TSR, Led_Matrix::TSR,
         Led_Matrix::TSR, Led_Matrix::TSR, Led_Matrix::TSR, Led_Matrix::TSR, Led_Matrix::TRC, Led_Matrix::TRC,
@@ -867,7 +921,7 @@ bool graphicArrowRotate(bool bInit)
         Led_Matrix::TSL, Led_Matrix::TSL, Led_Matrix::TRC,
     };
 
-    // are we initializing?
+    // Are we initializing?
     if (bInit)
     {
         PRINTS("\n--- ArrowRotate init");
@@ -875,7 +929,7 @@ bool graphicArrowRotate(bool bInit)
         bInit = false;
         idx = 0;
 
-        // use the arrow bitmap
+        // Use the arrow bitmap
         mx.control(Led_Matrix::UPDATE, Led_Matrix::OFF);
         for (uint8_t j = 0; j < mx.getDeviceCount(); j++)
             mx.setBuffer(((j + 1) * COL_SIZE) - 1, COL_SIZE, arrow);
@@ -885,25 +939,27 @@ bool graphicArrowRotate(bool bInit)
     // Is it time to animate?
     if (millis() - prevTimeAnim < ARROWR_DELAY)
         return (bInit);
-    prevTimeAnim = millis(); // starting point for next time
+    prevTimeAnim = millis(); // Starting point for next time
 
+    // Shift the arrows in all shift directions
     mx.control(Led_Matrix::WRAPAROUND, Led_Matrix::ON);
     mx.transform(t[idx++]);
     mx.control(Led_Matrix::WRAPAROUND, Led_Matrix::OFF);
 
-    // check if we are completed and set initialize for next time around
+    // Check if we are completed and set initialize for next time around
     if (idx == (sizeof(t) / sizeof(t[0])))
         bInit = true;
 
     return (bInit);
 }
 
+// Animate sinewave
 bool graphicSinewave(bool bInit)
 {
     static uint8_t curWave = 0;
     static uint8_t idx;
 
-#define SW_DATA_WIDTH 11 // valid data count followed by up to 10 data points
+#define SW_DATA_WIDTH 11 // Valid data count followed by up to 10 data points
     const uint8_t waves[][SW_DATA_WIDTH] = {
         {9, 8, 6, 1, 6, 24, 96, 128, 96, 16, 0},
         {6, 12, 2, 12, 48, 64, 48, 0, 0, 0, 0},
@@ -912,7 +968,7 @@ bool graphicSinewave(bool bInit)
     };
     const uint8_t WAVE_COUNT = sizeof(waves) / (SW_DATA_WIDTH * sizeof(uint8_t));
 
-    // are we initializing?
+    // Are we initializing?
     if (bInit)
     {
         PRINTS("\n--- Sinewave init");
@@ -924,8 +980,9 @@ bool graphicSinewave(bool bInit)
     // Is it time to animate?
     if (millis() - prevTimeAnim < SINE_DELAY)
         return (bInit);
-    prevTimeAnim = millis(); // starting point for next time
+    prevTimeAnim = millis(); // Starting point for next time
 
+    // Start animation
     mx.control(Led_Matrix::WRAPAROUND, Led_Matrix::ON);
     mx.transform(Led_Matrix::TSL);
     mx.setColumn(0, waves[curWave][idx++]);
@@ -940,7 +997,6 @@ bool graphicSinewave(bool bInit)
 }
 
 // ========== Control routines ===========
-//
 void resetMatrix(void)
 {
     mx.control(Led_Matrix::INTENSITY, MAX_INTENSITY / 2);
@@ -949,9 +1005,9 @@ void resetMatrix(void)
     prevTimeAnim = 0;
 }
 
-void runMatrixAnimation(void)
 // Schedule the animations, switching to the next one when the
 // the mode switch is pressed.
+void runMatrixAnimation(void)
 {
     static uint8_t state = 0;
     static uint8_t mesg = 0;
@@ -960,7 +1016,7 @@ void runMatrixAnimation(void)
     boolean changeState = false;
 
 #if RUN_DEMO
-    // check if one second has passed and then count down the demo timer. Once this
+    // Check if one second has passed and then count down the demo timer. Once this
     // gets to zero, change the state.
     if (millis() - prevTimeDemo >= 1000)
     {
@@ -972,12 +1028,12 @@ void runMatrixAnimation(void)
         }
     }
 #else
-    // check if the switch is pressed and handle that first
+    // Check if the switch is pressed and handle that first
     changeState = (ks.read() == MD_UISwitch::KEY_PRESS);
 #endif
     if (changeState)
     {
-        if (bInMessages) // the message display state
+        if (bInMessages) // The message display state
         {
             mesg++;
             if (mesg >= sizeof(msgTab) / sizeof(msgTab[0]))
@@ -993,7 +1049,7 @@ void runMatrixAnimation(void)
         bRestart = true;
     };
 
-    // now do whatever we do in the current state
+    // Now do whatever we do in the current state
     switch (state)
     {
     case 0:
@@ -1062,21 +1118,29 @@ void runMatrixAnimation(void)
 
 void setup()
 {
+    // Init the matrix
     mx.begin();
+
+    // Time of the previous animation
     prevTimeAnim = millis();
 #if RUN_DEMO
     prevTimeDemo = millis();
 #else
+    // Init button
     ks.begin();
 #endif
+
+    // Init serial communication if it's needed
 #if DEBUG
-    Serial.begin(57600);
+    Serial.begin(115200);
 #endif
     PRINTS("\n[Led_Matrix DaftPunk]");
 }
 
 void loop()
 {
+    // Start all animations
     runMatrixAnimation();
-    // other code to run the helmet goes here
+
+    // Other code to run the helmet goes here
 }

@@ -256,7 +256,7 @@ ____
 Module Orientation
 ------------------
 
-               G  F  E  D  C  B  A  DP
+               DP G  F  E  D  C  B  A  
              +------------------------+
              | 7  6  5  4  3  2  1  0 | D7
      CLK <---|                      1 | D6 <--- CLK

@@ -2,12 +2,37 @@
  **************************************************
  *
  * @file        Led_Matrix_Test.ino
+ *
  * @brief       Program to exercise the Led_Matrix library
- * 
+ *
  *              Uses most of the functions in the library
  *
- * @authors     Goran Juric for Soldered.com
- * 
+ *              Wiring diagram:
+ *              Dasduino   LED Matrix
+ *                  |          |
+ *                 VCC ------ VCC
+ *                 GND ------ GND
+ *                 D10 ------ LOAD
+ *                 D11 ------ DIN
+ *                 D13 ------ CLK
+ *
+ *              If you connect more matrices, the first matrix is the one on the right side.
+ *
+ *                                 DP G  F  E  D  C  B  A
+ *                               +------------------------+
+ *                               | 7  6  5  4  3  2  1  0 | D7
+ *                       CLK <---|                      1 | D6 <--- CLK
+ *                      LOAD <---|                      2 | D5 <--- LOAD
+ *                      DOUT <---|                      3 | D4 <--- DIN
+ *                       GND ----| O                    4 | D3 ---- GND
+ *                       VCC ----| O  O                 5 | D2 ---- VCC
+ *                               | O  O  O              6 | D1
+ *                               | O  O  O  O           7 | D0
+ *                               +------------------------+
+ *
+ *
+ * @authors     Goran Juric, Karlo Leksic for Soldered.com
+ *
  *              Modified by Soldered for use on https://solde.red/333062, https://solde.red/333148,
  *              https://solde.red/333149, https://solde.red/333150, https://solde.red/333151 and
  *              https://solde.red/333152
@@ -18,6 +43,7 @@
 // Turn on debug statements to the serial output
 #define DEBUG 1
 
+// Define debug functions
 #if DEBUG
 #define PRINT(s, x)                                                                                                    \
     {                                                                                                                  \
@@ -31,36 +57,36 @@
 #define PRINT(s, x)
 #define PRINTS(x)
 #define PRINTD(x)
-
 #endif
 
 // Define the number of devices we have in the chain and the hardware interface
-// NOTE: These pin numbers will probably not work with your hardware and may
-// need to be adapted
 #define HARDWARE_TYPE Led_Matrix::PAROLA_HW
-#define MAX_DEVICES 11
+#define MAX_DEVICES   3
 
-#define CS_PIN 10 // or SS
+// Define load pin
+#define LOAD_PIN 10
 
 // SPI hardware interface
-Led_Matrix mx = Led_Matrix(HARDWARE_TYPE, CS_PIN, MAX_DEVICES);
+Led_Matrix mx = Led_Matrix(HARDWARE_TYPE, LOAD_PIN, MAX_DEVICES);
 
 // We always wait a bit between updates of the display
-#define DELAYTIME 100 // in milliseconds
+#define DELAYTIME 100 // In milliseconds
 
+// Function for scrolling text on the matrix
 void scrollText(const char *p)
 {
     uint8_t charWidth;
-    uint8_t cBuf[8]; // this should be ok for all built-in fonts
+    uint8_t cBuf[8]; // This should be ok for all built-in fonts
 
     PRINTS("\nScrolling text");
     mx.clear();
 
+    // Go through the string until the end
     while (*p != '\0')
     {
         charWidth = mx.getChar(*p++, sizeof(cBuf) / sizeof(cBuf[0]), cBuf);
 
-        for (uint8_t i = 0; i <= charWidth; i++) // allow space between characters
+        for (uint8_t i = 0; i <= charWidth; i++) // Allow space between characters
         {
             mx.transform(Led_Matrix::TSL);
             if (i < charWidth)
@@ -70,16 +96,17 @@ void scrollText(const char *p)
     }
 }
 
+// Demonstrates the use of setPoint and show where the zero point is in the display
 void zeroPointSet()
-// Demonstrates the use of setPoint and
-// show where the zero point is in the display
 {
     PRINTS("\nZero point highlight");
     mx.clear();
 
+    // Draw 0
     if (MAX_DEVICES > 1)
         mx.setChar((2 * COL_SIZE) - 1, '0');
 
+    // Animate arrow
     for (uint8_t i = 0; i < ROW_SIZE; i++)
     {
         mx.setPoint(i, i, true);
@@ -91,12 +118,13 @@ void zeroPointSet()
     delay(DELAYTIME * 3);
 }
 
-void rows()
 // Demonstrates the use of setRow()
+void rows()
 {
     PRINTS("\nRows 0->7");
     mx.clear();
 
+    // Set each row lights up, and turn it off after the delay
     for (uint8_t row = 0; row < ROW_SIZE; row++)
     {
         mx.setRow(row, 0xff);
@@ -105,24 +133,27 @@ void rows()
     }
 }
 
+// Nested rectangles spanning the entire display
 void checkboard()
-// nested rectangles spanning the entire display
 {
     uint8_t chkCols[][2] = {{0x55, 0xaa}, {0x33, 0xcc}, {0x0f, 0xf0}, {0xff, 0x00}};
 
     PRINTS("\nCheckboard");
     mx.clear();
 
+    // Go through each pattern
     for (uint8_t pattern = 0; pattern < sizeof(chkCols) / sizeof(chkCols[0]); pattern++)
     {
         uint8_t col = 0;
         uint8_t idx = 0;
         uint8_t rep = 1 << pattern;
 
+        // Go through each column on matrices
         while (col < mx.getColumnCount())
         {
+            // Actually draw a rectangles
             for (uint8_t r = 0; r < rep; r++)
-                mx.setColumn(col++, chkCols[pattern][idx]); // use odd/even column masks
+                mx.setColumn(col++, chkCols[pattern][idx]); // Use odd/even column masks
             idx++;
             if (idx > 1)
                 idx = 0;
@@ -132,12 +163,13 @@ void checkboard()
     }
 }
 
-void columns()
 // Demonstrates the use of setColumn()
+void columns()
 {
     PRINTS("\nCols 0->max");
     mx.clear();
 
+    // Set each column lights up, and turn it off after the delay
     for (uint8_t col = 0; col < mx.getColumnCount(); col++)
     {
         mx.setColumn(col, 0xff);
@@ -146,15 +178,14 @@ void columns()
     }
 }
 
+// Combination of setRow() and setColumn() with user controlled display updates to ensure concurrent changes
 void cross()
-// Combination of setRow() and setColumn() with user controlled
-// display updates to ensure concurrent changes.
 {
     PRINTS("\nMoving cross");
     mx.clear();
     mx.control(Led_Matrix::UPDATE, Led_Matrix::OFF);
 
-    // diagonally down the display R to L
+    // Diagonally down the display R to L
     for (uint8_t i = 0; i < ROW_SIZE; i++)
     {
         for (uint8_t j = 0; j < MAX_DEVICES; j++)
@@ -171,7 +202,7 @@ void cross()
         }
     }
 
-    // moving up the display on the R
+    // Moving up the display on the R
     for (int8_t i = ROW_SIZE - 1; i >= 0; i--)
     {
         for (uint8_t j = 0; j < MAX_DEVICES; j++)
@@ -188,7 +219,7 @@ void cross()
         }
     }
 
-    // diagonally up the display L to R
+    // Diagonally up the display L to R
     for (uint8_t i = 0; i < ROW_SIZE; i++)
     {
         for (uint8_t j = 0; j < MAX_DEVICES; j++)
@@ -207,21 +238,23 @@ void cross()
     mx.control(Led_Matrix::UPDATE, Led_Matrix::ON);
 }
 
+// Demonstrate the use of buffer based repeated patterns across all devices
 void bullseye()
-// Demonstrate the use of buffer based repeated patterns
-// across all devices.
 {
     PRINTS("\nBullseye");
     mx.clear();
     mx.control(Led_Matrix::UPDATE, Led_Matrix::OFF);
 
+    // Repeat this 3 times
     for (uint8_t n = 0; n < 3; n++)
     {
         byte b = 0xff;
         int i = 0;
 
+        // Clearing bits until each becomes 0
         while (b != 0x00)
         {
+            // Go through each device
             for (uint8_t j = 0; j < MAX_DEVICES + 1; j++)
             {
                 mx.setRow(j, i, b);
@@ -231,6 +264,8 @@ void bullseye()
             }
             mx.update();
             delay(3 * DELAYTIME);
+
+            // Go through each device
             for (uint8_t j = 0; j < MAX_DEVICES + 1; j++)
             {
                 mx.setRow(j, i, 0);
@@ -244,8 +279,10 @@ void bullseye()
             i++;
         }
 
+        // Setting bits until each becomes 1
         while (b != 0xff)
         {
+            // Go through each device
             for (uint8_t j = 0; j < MAX_DEVICES + 1; j++)
             {
                 mx.setRow(j, i, b);
@@ -255,6 +292,8 @@ void bullseye()
             }
             mx.update();
             delay(3 * DELAYTIME);
+
+            // Go through each device
             for (uint8_t j = 0; j < MAX_DEVICES + 1; j++)
             {
                 mx.setRow(j, i, 0);
@@ -272,9 +311,9 @@ void bullseye()
     mx.control(Led_Matrix::UPDATE, Led_Matrix::ON);
 }
 
+// Demonstrates animation of a diagonal stripe moving across the display with points plotted outside the display region
+// ignored
 void stripe()
-// Demonstrates animation of a diagonal stripe moving across the display
-// with points plotted outside the display region ignored.
 {
     const uint16_t maxCol = MAX_DEVICES * ROW_SIZE;
     const uint8_t stripeWidth = 10;
@@ -282,10 +321,13 @@ void stripe()
     PRINTS("\nEach individually by row then col");
     mx.clear();
 
+    // Go through each column
     for (uint16_t col = 0; col < maxCol + ROW_SIZE + stripeWidth; col++)
     {
+        // Go through each row
         for (uint8_t row = 0; row < ROW_SIZE; row++)
         {
+            // Draw a diagonal stripe
             mx.setPoint(row, col - row, true);
             mx.setPoint(row, col - row - stripeWidth, false);
         }
@@ -293,8 +335,8 @@ void stripe()
     }
 }
 
-void spiral()
 // setPoint() used to draw a spiral across the whole display
+void spiral()
 {
     PRINTS("\nSpiral in");
     int rmin = 0, rmax = ROW_SIZE - 1;
@@ -303,7 +345,7 @@ void spiral()
     mx.clear();
     while ((rmax > rmin) && (cmax > cmin))
     {
-        // do row
+        // Do row
         for (int i = cmin; i <= cmax; i++)
         {
             mx.setPoint(rmin, i, true);
@@ -311,7 +353,7 @@ void spiral()
         }
         rmin++;
 
-        // do column
+        // Do column
         for (uint8_t i = rmin; i <= rmax; i++)
         {
             mx.setPoint(i, cmax, true);
@@ -319,7 +361,7 @@ void spiral()
         }
         cmax--;
 
-        // do row
+        // Do row
         for (int i = cmax; i >= cmin; i--)
         {
             mx.setPoint(rmax, i, true);
@@ -327,7 +369,7 @@ void spiral()
         }
         rmax--;
 
-        // do column
+        // Do column
         for (uint8_t i = rmax; i >= rmin; i--)
         {
             mx.setPoint(i, cmin, true);
@@ -337,8 +379,8 @@ void spiral()
     }
 }
 
-void bounce()
 // Animation of a bouncing ball
+void bounce()
 {
     const int minC = 0;
     const int maxC = mx.getColumnCount() - 1;
@@ -348,11 +390,12 @@ void bounce()
     int nCounter = 0;
 
     int r = 0, c = 2;
-    int8_t dR = 1, dC = 1; // delta row and column
+    int8_t dR = 1, dC = 1; // Delta row and column
 
     PRINTS("\nBouncing ball");
     mx.clear();
 
+    // Repeat moving the ball 200 times
     while (nCounter++ < 200)
     {
         mx.setPoint(r, c, false);
@@ -368,9 +411,8 @@ void bounce()
     }
 }
 
+// Demonstrates the control of display intensity (brightness) across the full range
 void intensity()
-// Demonstrates the control of display intensity (brightness) across
-// the full range.
 {
     uint8_t row;
 
@@ -391,14 +433,15 @@ void intensity()
     mx.control(Led_Matrix::INTENSITY, 8);
 }
 
+// Uses the test function of the MAX72xx to blink the display on and off
 void blinking()
-// Uses the test function of the MAX72xx to blink the display on and off.
 {
     int nDelay = 1000;
 
     PRINTS("\nBlinking");
     mx.clear();
 
+    // Blink until time runs out
     while (nDelay > 0)
     {
         mx.control(Led_Matrix::TEST, Led_Matrix::ON);
@@ -410,8 +453,8 @@ void blinking()
     }
 }
 
+// Uses scan limit function to restrict the number of rows displayed
 void scanLimit(void)
-// Uses scan limit function to restrict the number of rows displayed.
 {
     PRINTS("\nScan Limit");
     mx.clear();
@@ -429,9 +472,9 @@ void scanLimit(void)
     mx.control(Led_Matrix::SCANLIMIT, MAX_SCANLIMIT);
 }
 
-void transformation1()
 // Demonstrates the use of transform() to move bitmaps on the display
-// In this case a user defined bitmap is created and animated.
+// In this case a user defined bitmap is created and animated
+void transformation1()
 {
     uint8_t arrow[COL_SIZE] = {0b00001000, 0b00011100, 0b00111110, 0b01111111,
                                0b00011100, 0b00011100, 0b00111110, 0b00000000};
@@ -451,14 +494,14 @@ void transformation1()
     PRINTS("\nTransformation1");
     mx.clear();
 
-    // use the arrow bitmap
+    // Use the arrow bitmap
     mx.control(Led_Matrix::UPDATE, Led_Matrix::OFF);
     for (uint8_t j = 0; j < mx.getDeviceCount(); j++)
         mx.setBuffer(((j + 1) * COL_SIZE) - 1, COL_SIZE, arrow);
     mx.control(Led_Matrix::UPDATE, Led_Matrix::ON);
     delay(DELAYTIME);
 
-    // run through the transformations
+    // Run through the transformations
     mx.control(Led_Matrix::WRAPAROUND, Led_Matrix::ON);
     for (uint8_t i = 0; i < (sizeof(t) / sizeof(t[0])); i++)
     {
@@ -468,9 +511,9 @@ void transformation1()
     mx.control(Led_Matrix::WRAPAROUND, Led_Matrix::OFF);
 }
 
-void transformation2()
 // Demonstrates the use of transform() to move bitmaps on the display
-// In this case font characters are loaded into the display for animation.
+// In this case font characters are loaded into the display for animation
+void transformation2()
 {
     Led_Matrix::transformType_t t[] = {
         Led_Matrix::TINV, Led_Matrix::TRC, Led_Matrix::TRC, Led_Matrix::TRC,  Led_Matrix::TRC,  Led_Matrix::TINV,
@@ -486,14 +529,14 @@ void transformation2()
     mx.clear();
     mx.control(Led_Matrix::WRAPAROUND, Led_Matrix::OFF);
 
-    // draw something that will show changes
+    // Draw something that will show changes
     for (uint8_t j = 0; j < mx.getDeviceCount(); j++)
     {
         mx.setChar(((j + 1) * COL_SIZE) - 1, '0' + j);
     }
     delay(DELAYTIME * 5);
 
-    // run thru transformations
+    // Run thru transformations
     for (uint8_t i = 0; i < (sizeof(t) / sizeof(t[0])); i++)
     {
         mx.transform(t[i]);
@@ -501,21 +544,21 @@ void transformation2()
     }
 }
 
-void wrapText()
 // Display text and animate scrolling using auto wraparound of the buffer
+void wrapText()
 {
     PRINTS("\nwrapText");
     mx.clear();
     mx.wraparound(Led_Matrix::ON);
 
-    // draw something that will show changes
+    // Draw something that will show changes
     for (uint16_t j = 0; j < mx.getDeviceCount(); j++)
     {
         mx.setChar(((j + 1) * COL_SIZE) - 1, (j & 1 ? 'M' : 'W'));
     }
     delay(DELAYTIME * 5);
 
-    // run thru transformations
+    // Run thru transformations
     for (uint16_t i = 0; i < 3 * COL_SIZE * MAX_DEVICES; i++)
     {
         mx.transform(Led_Matrix::TSL);
@@ -537,20 +580,23 @@ void wrapText()
         delay(DELAYTIME * 2);
     }
 
+    // If this options is enabled, the edge is wrapped around to the opposite side
     mx.wraparound(Led_Matrix::OFF);
 }
 
-void showCharset(void)
 // Run through display of the the entire font characters set
+void showCharset(void)
 {
     mx.clear();
     mx.update(Led_Matrix::OFF);
 
+    // Go through each char
     for (uint16_t i = 0; i < 256; i++)
     {
         mx.clear(0);
         mx.setChar(COL_SIZE - 1, i);
 
+        // If there are more than 3 matrices, use hex format
         if (MAX_DEVICES >= 3)
         {
             char hex[3];
@@ -571,18 +617,22 @@ void showCharset(void)
 
 void setup()
 {
+    // Init matrix
     mx.begin();
 
 #if DEBUG
-    Serial.begin(57600);
+    // Init serial communication if it's used
+    Serial.begin(115200);
 #endif
+
+    // Print a message on the matrix and Serial Monitor
     PRINTS("\n[Led_Matrix Test & Demo]");
-    //  scrollText("Led_Matrix Test  ");
+    scrollText("Led_Matrix Test  ");
 }
 
 void loop()
 {
-#if 1
+    // Graphics tests demo
     scrollText("Graphics");
     zeroPointSet();
     rows();
@@ -593,24 +643,20 @@ void loop()
     bullseye();
     bounce();
     spiral();
-#endif
 
-#if 1
+    // Controlling matrix demo
     scrollText("Control");
     intensity();
     scanLimit();
     blinking();
-#endif
 
-#if 1
+    // Transformation demo
     scrollText("Transform");
     transformation1();
     transformation2();
-#endif
 
-#if 1
+    // Charset demo
     scrollText("Charset");
     wrapText();
     showCharset();
-#endif
 }
