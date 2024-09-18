@@ -12,4 +12,5 @@ jobs:
         with:
           compliance: update
           project-type: library
+          library-manager: update
           recursive: true
