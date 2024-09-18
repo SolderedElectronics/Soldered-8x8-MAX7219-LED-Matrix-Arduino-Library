@@ -6,7 +6,7 @@
 
 | ![8x8 LED matrix Green MAX7219 board](https://upload.wikimedia.org/wikipedia/commons/8/8f/Example_image.svg) |
 | :----------------------------------------------------------------------------------------------------------: |
-| [8x8 LED matrix Green MAX7219 board](https://www.solde.red/333148) |
+| [8x8 LED matrix Green MAX7219 board](https://solde.red/333148) |
 
 The LED matrix 8x8 is a system of 64 interconnected LEDs that, with the help of the MAX7219 LED driver, light up as programmed, and all of this is located on one board and is truly easy to use. You can use them to show letters or symbols, display text, and the like. It is possible to connect several modules with just a few wires and control several matrices at once.
 
@@ -19,7 +19,7 @@ The design of the modules is such that they will look like they are from one pie
 
 | ![8x8 LED matrix Red MAX7219 board](https://upload.wikimedia.org/wikipedia/commons/8/8f/Example_image.svg) |
 | :--------------------------------------------------------------------------------------------------------: |
-| [8x8 LED matrix Red MAX7219 board](https://www.solde.red/333149) |
+| [8x8 LED matrix Red MAX7219 board](https://solde.red/333149) |
 
 The LED matrix 8x8 is a system of 64 interconnected LEDs that, with the help of the MAX7219 LED driver, light up as programmed, and all of this is located on one board and is truly easy to use. You can use them to show letters or symbols, display text, and the like. It is possible to connect several modules with just a few wires and control several matrices at once.
 
@@ -32,7 +32,7 @@ The design of the modules is such that they will look like they are from one pie
 
 | ![8x8 LED matrix Purple MAX7219 board](https://upload.wikimedia.org/wikipedia/commons/8/8f/Example_image.svg) |
 | :-----------------------------------------------------------------------------------------------------------: |
-| [8x8 LED matrix Purple MAX7219 board](https://www.solde.red/333150) |
+| [8x8 LED matrix Purple MAX7219 board](https://solde.red/333150) |
 
 The LED matrix 8x8 is a system of 64 interconnected LEDs that, with the help of the MAX7219 LED driver, light up as programmed, and all of this is located on one board and is truly easy to use. You can use them to show letters or symbols, display text, and the like. It is possible to connect several modules with just a few wires and control several matrices at once.
 
@@ -45,7 +45,7 @@ The design of the modules is such that they will look like they are from one pie
 
 | ![8x8 LED matrix White MAX7219 board](https://upload.wikimedia.org/wikipedia/commons/8/8f/Example_image.svg) |
 | :----------------------------------------------------------------------------------------------------------: |
-| [8x8 LED matrix White MAX7219 board](https://www.solde.red/333151) |
+| [8x8 LED matrix White MAX7219 board](https://solde.red/333151) |
 
 The LED matrix 8x8 is a system of 64 interconnected LEDs that, with the help of the MAX7219 LED driver, light up as programmed, and all of this is located on one board and is truly easy to use. You can use them to show letters or symbols, display text, and the like. It is possible to connect several modules with just a few wires and control several matrices at once.
 
@@ -58,7 +58,7 @@ The design of the modules is such that they will look like they are from one pie
 
 | ![8x8 LED matrix Orange MAX7219 board](https://upload.wikimedia.org/wikipedia/commons/8/8f/Example_image.svg) |
 | :-----------------------------------------------------------------------------------------------------------: |
-| [8x8 LED matrix Orange MAX7219 board](https://www.solde.red/333152) |
+| [8x8 LED matrix Orange MAX7219 board](https://solde.red/333152) |
 
 The LED matrix 8x8 is a system of 64 interconnected LEDs that, with the help of the MAX7219 LED driver, light up as programmed, and all of this is located on one board and is truly easy to use. You can use them to show letters or symbols, display text, and the like. It is possible to connect several modules with just a few wires and control several matrices at once.
 
@@ -71,7 +71,7 @@ The design of the modules is such that they will look like they are from one pie
 
 | ![8x8 LED matrix Blue MAX7219 board](https://upload.wikimedia.org/wikipedia/commons/8/8f/Example_image.svg) |
 | :---------------------------------------------------------------------------------------------------------: |
-| [8x8 LED matrix Blue MAX7219 board](https://www.solde.red/333153) |
+| [8x8 LED matrix Blue MAX7219 board](https://solde.red/333153) |
 
 The LED matrix 8x8 is a system of 64 interconnected LEDs that, with the help of the MAX7219 LED driver, light up as programmed, and all of this is located on one board and is truly easy to use. You can use them to show letters or symbols, display text, and the like. It is possible to connect several modules with just a few wires and control several matrices at once.
 
