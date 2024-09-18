@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v3
       - uses: arduino/arduino-lint-action@v1
         with:
-          compliance: update
+          compliance: specification
           project-type: library
           library-manager: update
           recursive: true
