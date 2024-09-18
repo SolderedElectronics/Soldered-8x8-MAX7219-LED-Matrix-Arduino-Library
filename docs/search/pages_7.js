@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['parola_20custom_20module_0',['Parola Custom Module',['../page_parola.html',1,'pageHardware']]]
+  ['icstation_20module_0',['ICStation Module',['../page_i_c_station.html',1,'pageHardware']]]
 ];

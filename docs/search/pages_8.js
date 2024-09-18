@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['revision_20history_0',['Revision History',['../page_revision_history.html',1,'index']]]
+  ['led_20matrix_20arduino_20library_0',['8x8 Led Matrix Arduino library',['../index.html',1,'']]],
+  ['library_1',['Library',['../page_software.html',1,'Software Library'],['../page_donation.html',1,'Support the Library']]],
+  ['library_2',['8x8 Led Matrix Arduino library',['../index.html',1,'']]]
 ];

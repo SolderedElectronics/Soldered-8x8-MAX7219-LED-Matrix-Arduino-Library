@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['update_0',['update',['../class_m_d___m_a_x72_x_x.html#a3f91498bfc0023f67d4bf1284ca70317',1,'MD_MAX72XX::update(controlValue_t mode)'],['../class_m_d___m_a_x72_x_x.html#a4d51360880d7a6fa33a6f917cf423879',1,'MD_MAX72XX::update(void)'],['../class_m_d___m_a_x72_x_x.html#a9cc242e22748229a223851217b76fd4e',1,'MD_MAX72XX::update(uint8_t buf)']]],
-  ['update_1',['UPDATE',['../class_m_d___m_a_x72_x_x.html#a7c6d702fe0161b19448f35049e00bf4fa6e9fa4baa13700cb81d9ca48d849d26f',1,'MD_MAX72XX']]]
+  ['readme_2emd_0',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['repository_20contents_1',['Repository Contents',['../index.html#autotoc_md1',1,'']]],
+  ['revision_20history_2',['Revision History',['../page_revision_history.html',1,'index']]],
+  ['runanimation_3',['runAnimation',['../class_m_d___robot_eyes.html#ab30a9d167b84ce2c86f7843076fa2248',1,'MD_RobotEyes']]]
 ];

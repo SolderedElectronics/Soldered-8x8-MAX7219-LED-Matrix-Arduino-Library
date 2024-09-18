@@ -1,18 +1,10 @@
 var searchData=
 [
-  ['md_5feyepair_0',['MD_EyePair',['../class_m_d___eye_pair.html#a1b58984b8136a3be349168d7140c6582',1,'MD_EyePair::MD_EyePair()'],['../class_m_d___eye_pair.html',1,'MD_EyePair']]],
-  ['md_5feyepair_2ecpp_1',['MD_EyePair.cpp',['../_m_d___eye_pair_8cpp.html',1,'']]],
-  ['md_5feyepair_2eh_2',['MD_EyePair.h',['../_m_d___eye_pair_8h.html',1,'']]],
-  ['md_5fmax72xx_3',['MD_MAX72XX',['../class_m_d___m_a_x72_x_x.html',1,'MD_MAX72XX'],['../class_m_d___m_a_x72_x_x.html#a6f643c2bf5030639b5d79ad6418c3881',1,'MD_MAX72XX::MD_MAX72XX(moduleType_t mod, SPIClass &amp;spi, uint8_t csPin, uint8_t numDevices=1)'],['../class_m_d___m_a_x72_x_x.html#a22877f79afa52fa3242de425ea85255a',1,'MD_MAX72XX::MD_MAX72XX(moduleType_t mod, uint8_t csPin, uint8_t numDevices=1)'],['../class_m_d___m_a_x72_x_x.html#ae4f5a0cee2714280a7b8fd694d70c93c',1,'MD_MAX72XX::MD_MAX72XX(moduleType_t mod, uint8_t dataPin, uint8_t clkPin, uint8_t csPin, uint8_t numDevices=1)']]],
-  ['md_5fmax72xx_2ecpp_4',['MD_MAX72xx.cpp',['../_m_d___m_a_x72xx_8cpp.html',1,'']]],
-  ['md_5fmax72xx_2eh_5',['MD_MAX72xx.h',['../_m_d___m_a_x72xx_8h.html',1,'']]],
-  ['md_5fmax72xx_5fbuf_2ecpp_6',['MD_MAX72xx_buf.cpp',['../_m_d___m_a_x72xx__buf_8cpp.html',1,'']]],
-  ['md_5fmax72xx_5ffont_2ecpp_7',['MD_MAX72xx_font.cpp',['../_m_d___m_a_x72xx__font_8cpp.html',1,'']]],
-  ['md_5fmax72xx_5flib_2eh_8',['MD_MAX72xx_lib.h',['../_m_d___m_a_x72xx__lib_8h.html',1,'']]],
-  ['md_5fmax72xx_5fpix_2ecpp_9',['MD_MAX72xx_pix.cpp',['../_m_d___m_a_x72xx__pix_8cpp.html',1,'']]],
-  ['md_5froboteyes_10',['MD_RobotEyes',['../class_m_d___robot_eyes.html',1,'MD_RobotEyes'],['../class_m_d___robot_eyes.html#ac997ca927d63f501b008ad9ef22874dc',1,'MD_RobotEyes::MD_RobotEyes()']]],
-  ['md_5froboteyes_2ecpp_11',['MD_RobotEyes.cpp',['../_m_d___robot_eyes_8cpp.html',1,'']]],
-  ['md_5froboteyes_2eh_12',['MD_RobotEyes.h',['../_m_d___robot_eyes_8h.html',1,'']]],
-  ['md_5froboteyes_5fdata_2eh_13',['MD_RobotEyes_Data.h',['../_m_d___robot_eyes___data_8h.html',1,'']]],
-  ['moduletype_5ft_14',['moduleType_t',['../class_m_d___m_a_x72_x_x.html#a88ea7aada207c02282d091b7be7084e6',1,'MD_MAX72XX']]]
+  ['ic_0',['The Maxim 72xx LED Controller IC',['..//github/workspace/gh-pages/src/libs/MD_MAX72XX/src/MD_MAX72xx.h#autotoc_md9',1,'']]],
+  ['icstation_20diy_20kit_20module_1',['ICStation DIY Kit Module',['../page_i_c_station.html#autotoc_md25',1,'']]],
+  ['icstation_20module_2',['ICStation Module',['../page_i_c_station.html',1,'pageHardware']]],
+  ['icstation_5fhw_3',['ICSTATION_HW',['../class_m_d___m_a_x72_x_x.html#a88ea7aada207c02282d091b7be7084e6a583a8410fad078917bc9f0752395b605',1,'MD_MAX72XX']]],
+  ['intensity_4',['INTENSITY',['../class_m_d___m_a_x72_x_x.html#a7c6d702fe0161b19448f35049e00bf4fa53f3b55b0268f2e1550cf8357c5b4812',1,'MD_MAX72XX']]],
+  ['interconnections_5',['Interconnections',['../page_parola.html#autotoc_md21',1,'Module Interconnections'],['../page_generic.html#autotoc_md24',1,'Module Interconnections'],['../page_i_c_station.html#autotoc_md27',1,'Module Interconnections'],['../page_f_c16.html#autotoc_md30',1,'Module Interconnections']]],
+  ['interface_6',['Connections to the Arduino Board (SPI interface)',['../page_connect.html#autotoc_md13',1,'']]]
 ];

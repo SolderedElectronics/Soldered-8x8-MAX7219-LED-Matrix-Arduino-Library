@@ -36,7 +36,7 @@ var searchData=
   ['_5fpupildata_33',['_pupilData',['../class_m_d___eye_pair.html#af5b8fac5c4ec43c549908afa1070f9a0',1,'MD_EyePair']]],
   ['_5fsavedeyeball_34',['_savedEyeball',['../class_m_d___eye_pair.html#a2cb2340d9a0c221c673076044264ea55',1,'MD_EyePair']]],
   ['_5fscrolldelay_35',['_scrollDelay',['../class_m_d___robot_eyes.html#adceb7ac2bedaa2332eda09746dace8b7',1,'MD_RobotEyes']]],
-  ['_5fsd_36',['_sd',['../class_m_d___robot_eyes.html#a935fd71ef55952ba6270eeb711abd6d3',1,'MD_RobotEyes::_sd'],['../class_m_d___eye_pair.html#ae47c6797203f4f10e5de79a9307eb623',1,'MD_EyePair::_sd']]],
+  ['_5fsd_36',['_sd',['../class_m_d___eye_pair.html#ae47c6797203f4f10e5de79a9307eb623',1,'MD_EyePair::_sd'],['../class_m_d___robot_eyes.html#a935fd71ef55952ba6270eeb711abd6d3',1,'MD_RobotEyes::_sd']]],
   ['_5fspi_37',['_spi',['../class_m_d___m_a_x72_x_x.html#aec5b3fb52da5baac34c3dc2e42463a90',1,'MD_MAX72XX']]],
   ['_5fspidata_38',['_spiData',['../class_m_d___m_a_x72_x_x.html#a7ab9d74ef1d2a494a4156c604036200b',1,'MD_MAX72XX']]],
   ['_5fspiref_39',['_spiRef',['../class_m_d___m_a_x72_x_x.html#a814dc29c1e9f97e3b8e4330a608884d5',1,'MD_MAX72XX']]],

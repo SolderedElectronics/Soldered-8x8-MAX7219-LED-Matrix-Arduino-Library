@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['copyright_0',['Copyright',['../page_copyright.html',1,'index']]],
-  ['create_20and_20modify_20fonts_1',['Create and Modify Fonts',['../page_font_utility.html',1,'index']]]
+  ['8x8_20led_20matrix_20arduino_20library_0',['8x8 Led Matrix Arduino library',['../index.html',1,'']]]
 ];

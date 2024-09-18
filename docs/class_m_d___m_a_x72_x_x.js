@@ -2,7 +2,7 @@ var class_m_d___m_a_x72_x_x =
 [
     [ "deviceInfo_t", "struct_m_d___m_a_x72_x_x_1_1device_info__t.html", "struct_m_d___m_a_x72_x_x_1_1device_info__t" ],
     [ "fontInfo_t", "struct_m_d___m_a_x72_x_x_1_1font_info__t.html", "struct_m_d___m_a_x72_x_x_1_1font_info__t" ],
-    [ "fontType_t", "class_m_d___m_a_x72_x_x.html#a5b2e511f00bddbcc1fffa78757d71bf5", null ],
+    [ "fontType_t", "class_m_d___m_a_x72_x_x.html#a401f0f9a112944e0609cc0474af9e61c", null ],
     [ "controlRequest_t", "class_m_d___m_a_x72_x_x.html#a7c6d702fe0161b19448f35049e00bf4f", [
       [ "SHUTDOWN", "class_m_d___m_a_x72_x_x.html#a7c6d702fe0161b19448f35049e00bf4fad2d5ee4317d7dfb62c9f0dcc88562e1a", null ],
       [ "SCANLIMIT", "class_m_d___m_a_x72_x_x.html#a7c6d702fe0161b19448f35049e00bf4fa5bd97d72ff4cc7d30ee1d24213cee6a7", null ],

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['_7emd_5feyepair_0',['~MD_EyePair',['../class_m_d___eye_pair.html#aa41c1b7edde51ae210854f1eb6cd7cb9',1,'MD_EyePair']]],
-  ['_7emd_5fmax72xx_1',['~MD_MAX72XX',['../class_m_d___m_a_x72_x_x.html#afffa5b85187905f713477435187b3759',1,'MD_MAX72XX']]],
-  ['_7emd_5froboteyes_2',['~MD_RobotEyes',['../class_m_d___robot_eyes.html#aaee2024a29f97946b6f069936ba34ebe',1,'MD_RobotEyes']]]
+  ['update_0',['UPDATE',['../class_m_d___m_a_x72_x_x.html#a7c6d702fe0161b19448f35049e00bf4fa6e9fa4baa13700cb81d9ca48d849d26f',1,'MD_MAX72XX']]],
+  ['update_1',['update',['../class_m_d___m_a_x72_x_x.html#a3f91498bfc0023f67d4bf1284ca70317',1,'MD_MAX72XX::update(controlValue_t mode)'],['../class_m_d___m_a_x72_x_x.html#a4d51360880d7a6fa33a6f917cf423879',1,'MD_MAX72XX::update(void)'],['../class_m_d___m_a_x72_x_x.html#a9cc242e22748229a223851217b76fd4e',1,'MD_MAX72XX::update(uint8_t buf)']]],
+  ['utility_2',['The txt2font Utility',['../page_font_utility.html#autotoc_md35',1,'']]]
 ];

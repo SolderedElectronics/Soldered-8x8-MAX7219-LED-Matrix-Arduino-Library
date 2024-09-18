@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['new_20hardware_20types_0',['New Hardware Types',['../page_new_hardware.html',1,'pageHardware']]]
+  ['kit_20module_0',['Kit Module',['../page_f_c16.html#autotoc_md28',1,'FC-16 DIY Kit Module'],['../page_i_c_station.html#autotoc_md25',1,'ICStation DIY Kit Module']]]
 ];
