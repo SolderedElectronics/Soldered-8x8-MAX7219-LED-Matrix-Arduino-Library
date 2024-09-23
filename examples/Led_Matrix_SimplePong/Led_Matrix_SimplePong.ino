@@ -91,7 +91,7 @@ Led_Matrix mx = Led_Matrix(HARDWARE_TYPE, CS_PIN, MAX_DEVICES); // SPI hardware 
 const uint8_t LEFT_SWITCH = 8;  // Bat move right switch pin
 const uint8_t RIGHT_SWITCH = 6; // Bat move right switch pin
 #if SPEED_FROM_ANALOG
-const uint8_t SPEED_POT = A5;
+const uint8_t SPEED_POT = A0;
 #endif
 
 // --------------------
